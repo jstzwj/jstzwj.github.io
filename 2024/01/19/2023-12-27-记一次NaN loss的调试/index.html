@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"blog.han.moe","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="夏寒的咖啡馆">
-<meta property="og:url" content="https://blog.han.moe/archives/2023/index.html">
+  <meta name="description" content="LLM，神奇，太神奇了。 事情是这样的。 做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。 第一次Loss NaN选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。 现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。 先进行了一些检查，排除了常见的一些原因：  输入包含NaN  权">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单记一次NaN loss的调试">
+<meta property="og:url" content="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/index.html">
 <meta property="og:site_name" content="夏寒的咖啡馆">
+<meta property="og:description" content="LLM，神奇，太神奇了。 事情是这样的。 做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。 第一次Loss NaN选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。 现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。 先进行了一些检查，排除了常见的一些原因：  输入包含NaN  权">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-19T12:40:19.506Z">
+<meta property="article:modified_time" content="2024-01-19T12:45:38.802Z">
 <meta property="article:author" content="夏寒">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://blog.han.moe/archives/2023/">
+<link rel="canonical" href="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 夏寒的咖啡馆</title>
+  <title>简单记一次NaN loss的调试 | 夏寒的咖啡馆</title>
   
 
 
@@ -139,76 +143,101 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 3 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          简单记一次NaN loss的调试
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-19 20:40:19 / 修改时间：20:45:38" itemprop="dateCreated datePublished" datetime="2024-01-19T20:40:19+08:00">2024-01-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-22T03:10:04+08:00"
-              content="2023-10-22">
-          10-22
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/22/2023-10-22-ChatGPT-and-16personalities/" itemprop="url">
-            <span itemprop="name">ChatGPT and 16personalities</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2023-10-15T16:17:35+08:00"
-              content="2023-10-15">
-          10-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/15/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>LLM，神奇，太神奇了。</p>
+<p>事情是这样的。</p>
+<p>做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。</p>
+<h2 id="第一次Loss-NaN"><a href="#第一次Loss-NaN" class="headerlink" title="第一次Loss NaN"></a>第一次Loss NaN</h2><p>选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。</p>
+<p>现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。</p>
+<p>先进行了一些检查，排除了常见的一些原因：</p>
+<ul>
+<li><p>输入包含NaN</p>
+</li>
+<li><p>权重包含NaN</p>
+</li>
+<li><p>学习率过大</p>
+</li>
+</ul>
+<p>反复思考了一下，模型本身前向的过程应该是没问题的，从loss到回传梯度，到优化器优化中必有一处出现了NaN。默认的eps是1e-8。</p>
+<p>最后，确定了Adam优化器中eps参数过小（1e-9）导致了NaN loss。</p>
+<h2 id="第二次Loss-NaN"><a href="#第二次Loss-NaN" class="headerlink" title="第二次Loss NaN"></a>第二次Loss NaN</h2><p>这一次直接第一个step就发生了loss为NaN的情况。这次定位原因更简单一些。</p>
+<p>这一次是因为tokenizer padding side是在左侧，且pad token为eos，导致第一个token就是eos，后面的全部token都被mask掉了。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/10/22/2023-10-22-ChatGPT-and-16personalities/" rel="prev" title="ChatGPT and 16personalities">
+      <i class="fa fa-chevron-left"></i> ChatGPT and 16personalities
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -255,6 +284,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1Loss-NaN"><span class="nav-number">1.</span> <span class="nav-text">第一次Loss NaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1Loss-NaN"><span class="nav-number">2.</span> <span class="nav-text">第二次Loss NaN</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -356,6 +386,25 @@
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'bd2f0c4ef01d73972643',
+      clientSecret: 'e321672474b0d6323178efbc743fa4991159fa86',
+      repo        : 'blog-comment',
+      owner       : 'jstzwj',
+      admin       : ['jstzwj'],
+      id          : '619e1c50a09a15f2eb8c97a53786a0b3',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

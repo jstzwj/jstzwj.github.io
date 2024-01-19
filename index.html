@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 7.0.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -145,7 +145,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2023/10/22/ChatGPT-and-16personalities/">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -159,7 +159,83 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/10/22/ChatGPT-and-16personalities/" class="post-title-link" itemprop="url">ChatGPT and 16personalities</a>
+            <a href="/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">简单记一次NaN loss的调试</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-19 20:40:19 / 修改时间：20:45:38" itemprop="dateCreated datePublished" datetime="2024-01-19T20:40:19+08:00">2024-01-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>LLM，神奇，太神奇了。</p>
+<p>事情是这样的。</p>
+<p>做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。</p>
+<h2 id="第一次Loss-NaN"><a href="#第一次Loss-NaN" class="headerlink" title="第一次Loss NaN"></a>第一次Loss NaN</h2><p>选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。</p>
+<p>现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。</p>
+<p>先进行了一些检查，排除了常见的一些原因：</p>
+<ul>
+<li><p>输入包含NaN</p>
+</li>
+<li><p>权重包含NaN</p>
+</li>
+<li><p>学习率过大</p>
+</li>
+</ul>
+<p>反复思考了一下，模型本身前向的过程应该是没问题的，从loss到回传梯度，到优化器优化中必有一处出现了NaN。默认的eps是1e-8。</p>
+<p>最后，确定了Adam优化器中eps参数过小（1e-9）导致了NaN loss。</p>
+<h2 id="第二次Loss-NaN"><a href="#第二次Loss-NaN" class="headerlink" title="第二次Loss NaN"></a>第二次Loss NaN</h2><p>这一次直接第一个step就发生了loss为NaN的情况。这次定位原因更简单一些。</p>
+<p>这一次是因为tokenizer padding side是在左侧，且pad token为eos，导致第一个token就是eos，后面的全部token都被mask掉了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2023/10/22/2023-10-22-ChatGPT-and-16personalities/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/22/2023-10-22-ChatGPT-and-16personalities/" class="post-title-link" itemprop="url">ChatGPT and 16personalities</a>
         </h2>
 
         <div class="post-meta">
@@ -355,7 +431,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -383,7 +459,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
