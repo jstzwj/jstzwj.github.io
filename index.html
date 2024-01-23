@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 7.0.0">
+<meta name="generator" content="Hexo 7.1.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -141,6 +141,103 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/01/23/2024-01-23-TrueNAS%20Scale%20Zerotier%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/01/23/2024-01-23-TrueNAS%20Scale%20Zerotier%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">TrueNAS Scale Zerotier安装和配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-23 20:12:31 / 修改时间：20:47:06" itemprop="dateCreated datePublished" datetime="2024-01-23T20:12:31+08:00">2024-01-23</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="啊！Zerotier真是太棒啦"><a href="#啊！Zerotier真是太棒啦" class="headerlink" title="啊！Zerotier真是太棒啦"></a>啊！Zerotier真是太棒啦</h2><p>由于校园网屏蔽了所有SMB端口，且同时我的NAS有内网穿透的需求，所以我打算为我的TrueNAS Scale安装上Zerotier。</p>
+<h2 id="系统环境变量设置"><a href="#系统环境变量设置" class="headerlink" title="系统环境变量设置"></a>系统环境变量设置</h2><p>在安装Zerotier之前我们先需要设置两个系统环境变量，进入系统-高级页面</p>
+<p><img src="https://s2.loli.net/2024/01/23/dQayEUTebOiI5DV.png" alt="truenas_zerotier_sys_panel.png"></p>
+<p>在系统控制面板中添加<code>net.ipv4.ip_forward</code>和<code>net.ipv4.conf.all.src_valid_mark</code>，设置值为1，也就是true。</p>
+<p><img src="https://s2.loli.net/2024/01/23/ZWU6QxzLl5bmu8s.png" alt="truenas_zerotier_sys_env.png"></p>
+<h2 id="Zerotier安装"><a href="#Zerotier安装" class="headerlink" title="Zerotier安装"></a>Zerotier安装</h2><p>接下来安装Zerotier。</p>
+<p>由于TrueNAS的Charts已经提供了Zerotier的APP，我们可以直接使用Charts进行安装。<br>在应用页面中搜索并部署Zerotier：</p>
+<p><img src="https://s2.loli.net/2024/01/23/HVsdOeqKjNJP9RD.png" alt="install_zerotier.png"></p>
+<p>在网络选项下添加项，并在其中输入你需要加入的网络的id。</p>
+<p><img src="https://s2.loli.net/2024/01/23/4opIhygAziC7LxH.png" alt="install_zerotier_settings.png"></p>
+<p><code>Auth Token (API Key)</code>和<code>Identity Secret</code>以及<code>Identity Public</code>暂时空着不填。</p>
+<p>在下面网络配置这一项中，一定要勾选<code>Host Network</code>，否则zerotier连不上NAS自身开启的服务。<br>然后点击安装完成安装流程。</p>
+<p>启动Zerotier服务，记得要在Zerotier的网站面板上勾选一下NAS的这个IP，同意让NAS加入该网络。</p>
+<h2 id="Zerotier网络地址持久化"><a href="#Zerotier网络地址持久化" class="headerlink" title="Zerotier网络地址持久化"></a>Zerotier网络地址持久化</h2><p>按照如上步骤安装之后，会发现有一个问题，就是每一次重启服务都会在zerotier的网络中分配一次新的机器ip地址。<br>这是因为没有设置<code>Identity Secret</code>和<code>Identity Public</code>。<br>接下来完成该步骤。</p>
+<p>1、在TrueNAS中，导航到系统设置，然后选择命令行（Shell）选项。</p>
+<p>2、在打开的shell窗口中输入以下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k3s kubectl get namespaces</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NAME              STATUS   AGE</span><br><span class="line">default           Active   31d</span><br><span class="line">kube-system       Active   31d</span><br><span class="line">kube-public       Active   31d</span><br><span class="line">kube-node-lease   Active   31d</span><br><span class="line">openebs           Active   31d</span><br><span class="line">ix-webdav         Active   31d</span><br><span class="line">ix-zerotier       Active   51m</span><br></pre></td></tr></table></figure>
+
+<p>3、使用获取到的命名空间运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k3s kubectl get -n ix-zerotier pods</span><br></pre></td></tr></table></figure>
+<p>输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NAME                        READY   STATUS    RESTARTS        AGE</span><br><span class="line">zerotier-59700b7689-gwcqw   0/1     Running   1 (2m30s ago)   7m36s</span><br></pre></td></tr></table></figure>
+
+
+<p>4、使用命名空间和Pod名称信息，在Pod内部打开一个shell，使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k3s kubectl <span class="built_in">exec</span> -n ix-zerotier --stdin --<span class="built_in">tty</span> zerotier-59700b7689-gwcqw -- /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>5、使用以下命令生成Zerotier identity文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zerotier-idtool generate identity.secret identity.public</span><br></pre></td></tr></table></figure>
+
+<p>6、查看<code>identity.secret</code>和<code>identity.public</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> identity.secret</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> identity.public</span><br></pre></td></tr></table></figure>
+
+<p>7、记下<code>identity.secret</code>和<code>identity.public</code>的值，接着转到应用程序，选择Zerotier，然后点击编辑。<br>将<code>identity.secret</code>和<code>identity.public</code>分别填入对应的框中，更新配置即可。</p>
+<p>然后zerotier会生成一个新的ip地址，并且重新启动Zerotier应用程序或TrueNAS，该地址也不会变化。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -431,7 +528,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
