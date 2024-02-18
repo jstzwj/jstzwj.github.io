@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.han.moe","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Photo byNASAonUnsplash本文翻译自-https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;index.html  本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》  当我们做出决定时，大脑会发生什么？是什么触发神经元发出信号？什么是神经编码？这本面向本科生和初学者的进阶教科书提供了关于计算和理论神经">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经元动力学-从单个神经元到网络和认知模型">
+<meta property="og:url" content="https://blog.han.moe/2024/02/18/2024-02-18-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E4%BB%8E%E5%8D%95%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%88%B0%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="夏寒的咖啡馆">
+<meta property="og:description" content="Photo byNASAonUnsplash本文翻译自-https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;index.html  本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》  当我们做出决定时，大脑会发生什么？是什么触发神经元发出信号？什么是神经编码？这本面向本科生和初学者的进阶教科书提供了关于计算和理论神经">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-18T12:02:19.000Z">
+<meta property="article:modified_time" content="2024-02-18T12:30:51.690Z">
+<meta property="article:author" content="夏寒">
+<meta property="article:tag" content="Neuronal Dynamics">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.han.moe/2024/02/18/2024-02-18-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E4%BB%8E%E5%8D%95%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%88%B0%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%A8%A1%E5%9E%8B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.han.moe/2024/02/18/2024-02-18-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E4%BB%8E%E5%8D%95%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%88%B0%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%A8%A1%E5%9E%8B/","path":"2024/02/18/2024-02-18-神经元动力学-从单个神经元到网络和认知模型/","title":"神经元动力学-从单个神经元到网络和认知模型"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>神经元动力学-从单个神经元到网络和认知模型 | 夏寒的咖啡馆</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?0f03a7cf91a8310c14be9df4345ee4a6"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夏寒的咖啡馆</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">第一部分 神经元动力学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%AE%80%E4%BB%8B-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%95%B0%E5%AD%A6"><span class="nav-number">1.1.</span> <span class="nav-text">第一章 简介-神经元与数学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%A6%BB%E5%AD%90%E9%80%9A%E9%81%93%E5%92%8CHodgkin-Huxley%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">第二章 离子通道和Hodgkin-Huxley模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%A0%91%E7%AA%81%E5%92%8C%E7%AA%81%E8%A7%A6"><span class="nav-number">1.3.</span> <span class="nav-text">第三章 树突和突触</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BB%B4%E5%BA%A6%E7%BA%A6%E7%AE%80%E5%92%8C%E7%9B%B8%E5%B9%B3%E9%9D%A2%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">第四章 维度约简和相平面分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86-%E5%B9%BF%E4%B9%89%E7%A7%AF%E5%88%86-%E6%BF%80%E5%8F%91%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="nav-number">2.</span> <span class="nav-text">第二部分 广义积分-激发神经元</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%A7%AF%E5%88%86-%E6%BF%80%E5%8F%91%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">第五章 非线性积分-激发模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E9%80%82%E5%BA%94%E6%80%A7%E5%92%8C%E6%94%BE%E7%94%B5%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">第六章 适应性和放电模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%B0%96%E5%B3%B0%E5%88%97%E5%92%8C%E7%A5%9E%E7%BB%8F%E7%BC%96%E7%A0%81%E7%9A%84%E5%8F%98%E5%BC%82%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">第七章 尖峰列和神经编码的变异性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%99%AA%E5%A3%B0%E8%BE%93%E5%85%A5%E6%A8%A1%E5%9E%8B%EF%BC%9A%E5%B0%96%E5%B3%B0%E5%88%B0%E8%BE%BE%E7%9A%84%E9%BD%90%E5%B0%84"><span class="nav-number">2.4.</span> <span class="nav-text">第八章 噪声输入模型：尖峰到达的齐射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E5%99%AA%E5%A3%B0%E8%BE%93%E5%87%BA%EF%BC%9A%E9%80%83%E9%80%B8%E7%8E%87%E5%92%8C%E8%BD%AF%E9%98%88%E5%80%BC"><span class="nav-number">2.5.</span> <span class="nav-text">第九章 噪声输出：逃逸率和软阈值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E4%BC%B0%E8%AE%A1"><span class="nav-number">2.6.</span> <span class="nav-text">第十章 模型估计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E5%88%A9%E7%94%A8%E9%9A%8F%E6%9C%BA%E7%A5%9E%E7%BB%8F%E5%85%83%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E7%BC%96%E7%A0%81%E5%92%8C%E8%A7%A3%E7%A0%81"><span class="nav-number">2.7.</span> <span class="nav-text">第十一章 利用随机神经元模型进行编码和解码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E9%83%A8%E5%88%86-%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BD%91%E7%BB%9C%E5%92%8C%E7%BE%A4%E4%BD%93%E6%B4%BB%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">第三部分 神经元网络和群体活动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E5%85%83%E7%BE%A4%E4%BD%93"><span class="nav-number">3.1.</span> <span class="nav-text">第十二章 神经元群体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E8%BF%9E%E7%BB%AD%E6%80%A7%E6%96%B9%E7%A8%8B%E5%92%8C%E7%A6%8F%E5%85%8B-%E6%99%AE%E6%9C%97%E5%85%8B%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">第十三章 连续性方程和福克-普朗克方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E7%A7%AF%E5%88%86%E6%96%B9%E7%A8%8B%E6%96%B9%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">第十四章 积分方程方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E5%BF%AB%E9%80%9F%E7%9E%AC%E5%8F%98%E5%92%8C%E9%80%9F%E7%8E%87%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.4.</span> <span class="nav-text">第十五章 快速瞬变和速率模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%83%A8%E5%88%86-%E8%AE%A4%E7%9F%A5%E5%8A%A8%E5%8A%9B%E5%AD%A6"><span class="nav-number">4.</span> <span class="nav-text">第四部分 认知动力学</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E7%AB%9E%E4%BA%89%E7%BE%A4%E4%BD%93%E5%92%8C%E5%86%B3%E7%AD%96%E5%88%B6%E5%AE%9A"><span class="nav-number">4.1.</span> <span class="nav-text">第十六章 竞争群体和决策制定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%83%E7%AB%A0-%E8%AE%B0%E5%BF%86%E5%92%8C%E5%90%B8%E5%BC%95%E5%AD%90%E5%8A%A8%E5%8A%9B%E5%AD%A6"><span class="nav-number">4.2.</span> <span class="nav-text">第十七章 记忆和吸引子动力学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0-%E6%84%9F%E7%9F%A5%E7%9A%84%E7%9A%AE%E5%B1%82%E5%9C%BA%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.3.</span> <span class="nav-text">第十八章 感知的皮层场模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E4%B9%9D%E7%AB%A0-%E7%AA%81%E8%A7%A6%E5%8F%AF%E5%A1%91%E6%80%A7%E5%92%8C%E5%AD%A6%E4%B9%A0"><span class="nav-number">4.4.</span> <span class="nav-text">第十九章 突触可塑性和学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%8D%81%E7%AB%A0-%E5%B1%95%E6%9C%9B%EF%BC%9A%E5%8F%AF%E5%A1%91%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E5%8A%A8%E5%8A%9B%E5%AD%A6"><span class="nav-number">4.5.</span> <span class="nav-text">第二十章 展望：可塑网络中的动力学</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">6.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%89%88%E5%8B%98%E8%AF%AF"><span class="nav-number">7.</span> <span class="nav-text">第一版勘误</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">夏寒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jstzwj" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jstzwj" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="XiaHan:jun@han.moe" title="E-Mail → XiaHan:jun@han.moe" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/02/18/2024-02-18-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E4%BB%8E%E5%8D%95%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%88%B0%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="神经元动力学-从单个神经元到网络和认知模型 | 夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          神经元动力学-从单个神经元到网络和认知模型
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-18 20:02:19 / 修改时间：20:30:51" itemprop="dateCreated datePublished" datetime="2024-02-18T20:02:19+08:00">2024-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A5%9E%E7%BB%8F%E5%8A%A8%E5%8A%9B%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">神经动力学</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>Photo by<a target="_blank" rel="noopener" href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">NASA</a>on<a target="_blank" rel="noopener" href="https://unsplash.com/s/photos/science?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>本文翻译自-<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/index.html">https://neuronaldynamics.epfl.ch/online/index.html</a></p>
+</blockquote>
+<p>本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》</p>
+<blockquote>
+<p>当我们做出决定时，大脑会发生什么？<br>是什么触发神经元发出信号？<br>什么是神经编码？<br>这本面向本科生和初学者的进阶教科书提供了关于计算和理论神经科学领域的全面而最新的介绍。它涵盖了许多经典的主题，包括Hodgkin-Huxley方程和Hopfield模型，以及该领域的最新发展，例如广义线性模型和决策理论。<br>本书一步步清晰的解释各种概念，非常适合只有微分方程和概率论基础知识的读者。插图和示例丰富。<br>每节的总结和课堂测试使得本书非常适合用于课程或自学。作者还提供了指向文献和大量参考书目的指南，这对有兴趣进一步研究的读者来说将具有不可估量的价值。</p>
+</blockquote>
+<p>之前看到有个不错的介绍脉冲神经网络的系列文章似乎咕咕咕了。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/45208720">石在：脉冲神经网络简明教程 第一章：神经元的生物基础</a></p>
+<p>本系列从该文章提到的书《Neuronal Dynamics》出发，以翻译为基础，并添加一些笔记。</p>
+<p>此外我也不是该专业的学生。如有错误，望不吝赐教。</p>
+<h1 id="第一部分-神经元动力学基础"><a href="#第一部分-神经元动力学基础" class="headerlink" title="第一部分 神经元动力学基础"></a>第一部分 神经元动力学基础</h1><h2 id="第一章-简介-神经元与数学"><a href="#第一章-简介-神经元与数学" class="headerlink" title="第一章 简介-神经元与数学"></a>第一章 简介-神经元与数学</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138874796">夏寒：Neuronal Dynamics(1)-神经元与数学</a></p>
+<h2 id="第二章-离子通道和Hodgkin-Huxley模型"><a href="#第二章-离子通道和Hodgkin-Huxley模型" class="headerlink" title="第二章 离子通道和Hodgkin-Huxley模型"></a>第二章 离子通道和Hodgkin-Huxley模型</h2><h2 id="第三章-树突和突触"><a href="#第三章-树突和突触" class="headerlink" title="第三章 树突和突触"></a>第三章 树突和突触</h2><h2 id="第四章-维度约简和相平面分析"><a href="#第四章-维度约简和相平面分析" class="headerlink" title="第四章 维度约简和相平面分析"></a>第四章 维度约简和相平面分析</h2><h1 id="第二部分-广义积分-激发神经元"><a href="#第二部分-广义积分-激发神经元" class="headerlink" title="第二部分 广义积分-激发神经元"></a>第二部分 广义积分-激发神经元</h1><h2 id="第五章-非线性积分-激发模型"><a href="#第五章-非线性积分-激发模型" class="headerlink" title="第五章 非线性积分-激发模型"></a>第五章 非线性积分-激发模型</h2><h2 id="第六章-适应性和放电模式"><a href="#第六章-适应性和放电模式" class="headerlink" title="第六章 适应性和放电模式"></a>第六章 适应性和放电模式</h2><h2 id="第七章-尖峰列和神经编码的变异性"><a href="#第七章-尖峰列和神经编码的变异性" class="headerlink" title="第七章 尖峰列和神经编码的变异性"></a>第七章 尖峰列和神经编码的变异性</h2><h2 id="第八章-噪声输入模型：尖峰到达的齐射"><a href="#第八章-噪声输入模型：尖峰到达的齐射" class="headerlink" title="第八章 噪声输入模型：尖峰到达的齐射"></a>第八章 噪声输入模型：尖峰到达的齐射</h2><h2 id="第九章-噪声输出：逃逸率和软阈值"><a href="#第九章-噪声输出：逃逸率和软阈值" class="headerlink" title="第九章 噪声输出：逃逸率和软阈值"></a>第九章 噪声输出：逃逸率和软阈值</h2><h2 id="第十章-模型估计"><a href="#第十章-模型估计" class="headerlink" title="第十章 模型估计"></a>第十章 模型估计</h2><h2 id="第十一章-利用随机神经元模型进行编码和解码"><a href="#第十一章-利用随机神经元模型进行编码和解码" class="headerlink" title="第十一章 利用随机神经元模型进行编码和解码"></a>第十一章 利用随机神经元模型进行编码和解码</h2><h1 id="第三部分-神经元网络和群体活动"><a href="#第三部分-神经元网络和群体活动" class="headerlink" title="第三部分 神经元网络和群体活动"></a>第三部分 神经元网络和群体活动</h1><h2 id="第十二章-神经元群体"><a href="#第十二章-神经元群体" class="headerlink" title="第十二章 神经元群体"></a>第十二章 神经元群体</h2><h2 id="第十三章-连续性方程和福克-普朗克方法"><a href="#第十三章-连续性方程和福克-普朗克方法" class="headerlink" title="第十三章 连续性方程和福克-普朗克方法"></a>第十三章 连续性方程和福克-普朗克方法</h2><h2 id="第十四章-积分方程方法"><a href="#第十四章-积分方程方法" class="headerlink" title="第十四章 积分方程方法"></a>第十四章 积分方程方法</h2><h2 id="第十五章-快速瞬变和速率模型"><a href="#第十五章-快速瞬变和速率模型" class="headerlink" title="第十五章 快速瞬变和速率模型"></a>第十五章 快速瞬变和速率模型</h2><h1 id="第四部分-认知动力学"><a href="#第四部分-认知动力学" class="headerlink" title="第四部分 认知动力学"></a>第四部分 认知动力学</h1><h2 id="第十六章-竞争群体和决策制定"><a href="#第十六章-竞争群体和决策制定" class="headerlink" title="第十六章 竞争群体和决策制定"></a>第十六章 竞争群体和决策制定</h2><h2 id="第十七章-记忆和吸引子动力学"><a href="#第十七章-记忆和吸引子动力学" class="headerlink" title="第十七章 记忆和吸引子动力学"></a>第十七章 记忆和吸引子动力学</h2><h2 id="第十八章-感知的皮层场模型"><a href="#第十八章-感知的皮层场模型" class="headerlink" title="第十八章 感知的皮层场模型"></a>第十八章 感知的皮层场模型</h2><h2 id="第十九章-突触可塑性和学习"><a href="#第十九章-突触可塑性和学习" class="headerlink" title="第十九章 突触可塑性和学习"></a>第十九章 突触可塑性和学习</h2><h2 id="第二十章-展望：可塑网络中的动力学"><a href="#第二十章-展望：可塑网络中的动力学" class="headerlink" title="第二十章 展望：可塑网络中的动力学"></a>第二十章 展望：可塑网络中的动力学</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="第一版勘误"><a href="#第一版勘误" class="headerlink" title="第一版勘误"></a>第一版勘误</h1>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Neuronal-Dynamics/" rel="tag"># Neuronal Dynamics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/23/2024-01-23-TrueNAS%20Scale%20Zerotier%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" rel="prev" title="TrueNAS Scale Zerotier安装和配置">
+                  <i class="fa fa-angle-left"></i> TrueNAS Scale Zerotier安装和配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">夏寒</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"jstzwj/blog-comment","repo_id":"R_kgDOKj26ZQ","category":"Comments","category_id":"DIC_kwDOKj26Zc4Ccx9-","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>
