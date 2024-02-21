@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.han.moe","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="翻译自：https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;Ch1.S1.html  1.1 神经系统原理近百年来，生物学研究积累了大量关于大脑结构和功能的详细知识。中枢神经系统中最基本的处理单元是神经元，它们以复杂的模式相互连接。图1.1是这样一个神经元网络的一小部分，图1.1是1900年前后神经科学先驱之一的Ramón y Cajal的画作。我们可以分辨出几个具有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经系统原理">
+<meta property="og:url" content="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="夏寒的咖啡馆">
+<meta property="og:description" content="翻译自：https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;Ch1.S1.html  1.1 神经系统原理近百年来，生物学研究积累了大量关于大脑结构和功能的详细知识。中枢神经系统中最基本的处理单元是神经元，它们以复杂的模式相互连接。图1.1是这样一个神经元网络的一小部分，图1.1是1900年前后神经科学先驱之一的Ramón y Cajal的画作。我们可以分辨出几个具有">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-90372fbb743e017940eec47ee0b3fa01_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-2330a9349990f2ef624f869f3c41fcef_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-96f96e028cede2eca7bd637b7cfe68e1_b.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-6b604be263191d30d62381193589466c_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-22e510c4f9c5d3e02210ab0382511981_b.jpg">
+<meta property="article:published_time" content="2024-02-21T06:08:25.000Z">
+<meta property="article:modified_time" content="2024-02-21T06:33:25.360Z">
+<meta property="article:author" content="夏寒">
+<meta property="article:tag" content="Neuronal Dynamics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic2.zhimg.com/v2-90372fbb743e017940eec47ee0b3fa01_b.jpg">
+
+
+<link rel="canonical" href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/","path":"2024/02/21/2024-02-21-神经系统原理/","title":"神经系统原理"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>神经系统原理 | 夏寒的咖啡馆</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?0f03a7cf91a8310c14be9df4345ee4a6"></script>
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">夏寒的咖啡馆</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1.1 神经系统原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-1-%E7%90%86%E6%83%B3%E7%9A%84%E8%84%89%E5%86%B2%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="nav-number">2.</span> <span class="nav-text">1.1.1 理想的脉冲神经元</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-2-%E8%84%89%E5%86%B2%E5%BA%8F%E5%88%97"><span class="nav-number">3.</span> <span class="nav-text">1.1.2 脉冲序列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-3-%E7%AA%81%E8%A7%A6"><span class="nav-number">4.</span> <span class="nav-text">1.1.3 突触</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-4-%E7%A5%9E%E7%BB%8F%E5%85%83%E6%98%AF%E5%BA%9E%E5%A4%A7%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">1.1.4 神经元是庞大系统的一部分</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">夏寒</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jstzwj" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jstzwj" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="XiaHan:jun@han.moe" title="E-Mail → XiaHan:jun@han.moe" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="神经系统原理 | 夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          神经系统原理
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-02-21 14:08:25 / 修改时间：14:33:25" itemprop="dateCreated datePublished" datetime="2024-02-21T14:08:25+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%A5%9E%E7%BB%8F%E5%8A%A8%E5%8A%9B%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">神经动力学</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>翻译自：<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/Ch1.S1.html">https://neuronaldynamics.epfl.ch/online/Ch1.S1.html</a></p>
+</blockquote>
+<h1 id="1-1-神经系统原理"><a href="#1-1-神经系统原理" class="headerlink" title="1.1 神经系统原理"></a>1.1 神经系统原理</h1><p>近百年来，生物学研究积累了大量关于大脑结构和功能的详细知识。中枢神经系统中最基本的处理单元是神经元，它们以复杂的模式相互连接。图1.1是这样一个神经元网络的一小部分，图1.1是1900年前后神经科学先驱之一的Ramón y Cajal的画作。我们可以分辨出几个具有三角形或圆形细胞体和长长的线状延伸的神经元。这张图让人一窥大脑皮层中的神经元网络。实际上，大脑皮层的神经元及其连接被挤在一个密集的网络中，每立方毫米有104个以上的细胞体和几公里长的 “线”。在大脑的不同区域，其线的连接模式可能看起来不同。然而，在所有区域，不同大小和形状的神经元构成了基本原件。</p>
+<p><img src="https://pic2.zhimg.com/v2-90372fbb743e017940eec47ee0b3fa01_b.jpg"></p>
+<p>图1.1：这幅Ramón y Cajal的画再现了他在显微镜下观察到的哺乳动物皮层中的神经元。只有小部分皮层组织样本中的神经元被染色而清晰可见；实际上，神经元的密度要高得多。细胞B是一个典型的金字塔形细胞，其细胞体呈三角形。树突从侧面向上和细胞分开，可以通过其不规则的外观来识别。轴突则呈现出光滑的细线的形状，向下延伸，有一些分支向左右两边延伸。摘自Ramòn y Cajal（<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/bib.html#bib1">416</a>）。</p>
+<h1 id="1-1-1-理想的脉冲神经元"><a href="#1-1-1-理想的脉冲神经元" class="headerlink" title="1.1.1 理想的脉冲神经元"></a>1.1.1 理想的脉冲神经元</h1><p>一个典型的神经元可分为三个部分，功能各不相同，分别称为树突（dendrite），胞体（soma）和轴突（axon）；见图1.2。</p>
+<p>粗略地说，树突起着 “输入装置”的作用，它收集来自其他神经元的信号，并将其传送到胞体。胞体是 “中央处理单元”，执行重要的非线性处理步骤。如果到达胞体的总输入超过一定的阈值，就会产生一个输出信号。输出信号被 “输出装置”-轴突捕获，将信号传递给其他神经元。</p>
+<p><img src="https://pic4.zhimg.com/v2-2330a9349990f2ef624f869f3c41fcef_b.jpg"></p>
+<p>图1.2：A. Ramón y Cajal画的单个神经元。图中，可以清楚地区分出树突，胞体和轴突。该插图展示了一个神经元动作电位（示意图）的例子。动作电位是一个1-2毫秒的持续时间和振幅约100 mV的短电压脉冲。</p>
+<p><img src="https://pic2.zhimg.com/v2-96f96e028cede2eca7bd637b7cfe68e1_b.jpg"></p>
+<p>图1.2：B. 信号从突触前神经元 $j$ 传输到突触后神经元 $i$ 。右下端的轴突通向其他神经元。(示意图)</p>
+<h1 id="1-1-2-脉冲序列"><a href="#1-1-2-脉冲序列" class="headerlink" title="1.1.2 脉冲序列"></a>1.1.2 脉冲序列</h1><p>神经元信号由短电脉冲组成，可以通过在神经元胞体上或靠近神经元的轴突上放置细电极来观察。参见图1.2。</p>
+<p>脉冲（pulse），即所谓的动作电位（action potential）或神经脉冲（spike），具有大约100 mV的幅度，通常为1-2 ms的持续时间。随着动作电位沿轴突传播，脉冲的形式不会改变。由单个神经元发出的一系列动作电位称为脉冲序列-一系列有固定模式的事件，以规则或不规则的间隔发生；参见图1.3。由于神经元的每个脉冲看起来都很相似，因此动作电位本身不携带任何信息。重要的是脉冲的数量和时间。动作电位是信号传输的基本单位。</p>
+<p><img src="https://pic1.zhimg.com/v2-6b604be263191d30d62381193589466c_b.jpg"></p>
+<p>脉冲序列中的动作电位通常会很好地分开。即使输入非常强，也无法在第一个脉冲期间或之后立刻发射第二个脉冲。两个脉冲之间的最小距离定义为神经元的绝对不应期。在绝对不应期之后是相对不应期。在相对不应期阶段中，神经元虽然很难但还是有可能激发动作电位。</p>
+<h1 id="1-1-3-突触"><a href="#1-1-3-突触" class="headerlink" title="1.1.3 突触"></a>1.1.3 突触</h1><p>突触前神经元的轴突与突触后细胞的树突（或胞体）接触的部位就是突触。脊椎动物大脑中最常见的突触是化学突触（chemical synapse）。在化学突触处，轴突末端非常接近突触后神经元，突触前和突触后细胞膜之间只留下一个微小的间隙。这就是所谓的突触间隙（synaptic cleft）。当一个动作电位到达突触时，会引发一连串复杂的生物化学反应，导致神经递质（neurotransmitter）从突触前端释放到突触间隙中。一旦神经递质分子到达突触后端，就会被突触后细胞膜上的特异性受体检测到，并导致（直接或间接通过生物化学信号链）神经元打开特定的通道，使细胞外液体中的离子流入细胞内。反过来，离子的流入又改变了突触后的膜电位，从而最终将化学信号转化为电反应。突触后神经元对突触前脉冲的电压反应称为突触后电位（postsynaptic potential）。</p>
+<p>除化学突触外，神经元还可以通过电突触（electrical synapse）连接，有时称为间隙连接（gap junction）。专门的膜蛋白在两个神经元之间建立直接的电连接。关于间隙连接的功能方面人们知之甚少，但它们通常被认为与神经元的同步有关。</p>
+<h1 id="1-1-4-神经元是庞大系统的一部分"><a href="#1-1-4-神经元是庞大系统的一部分" class="headerlink" title="1.1.4 神经元是庞大系统的一部分"></a>1.1.4 神经元是庞大系统的一部分</h1><p>神经元分布在由数十亿其他神经元和胶质细胞组成的脑组织网络中。大脑是由不同的区域组成的。大脑皮层可以被认为是由神经元组成的长长的薄片，折叠起来覆盖在其他大脑结构之上。有些皮层区域主要参与处理感觉输入，其他区域参与工作记忆或运动控制等。</p>
+<p>对于感觉皮层（sensory cortex）中的神经元，可以在实验中根据它们对哪些刺激表现出强烈反应，来确定其功能。例如，初级视觉皮层中的神经元只对视觉空间的一个小区域内的光点作出反应。神经元对刺激敏感的有限区域被称为神经元的感受野（receptive field）（图1.4）。</p>
+<p>视觉皮层中所谓简单细胞的感受野是不均匀的，通常有三个拉长的（译注：即形状被拉长，长条或椭圆形等）子感受野（subfields）中的两个。当一个光点落入其中一个阳性子感受野（positive subfields）时，神经元会更加活跃，即比没有刺激时发出更多的脉冲。而每当光点落入阴性子感受野（negative subfields）时，与展示灰屏时神经元的自发活动相比，它的活动就会减少。事实上，光点并不是最好的刺激。如果一个移动的光条的方向与神经元的阳性子感受野的拉长方向一致，那么神经元的反应会最大限度地提高(<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/bib.html#bib3">231</a>)。</p>
+<p>神经科学文献中的很大一部分的工作在于确定感觉皮层中神经元的感受野。视觉皮层（visual cortex）中的神经元响应对应的视觉刺激，而听觉皮层（auditory cortex）或体感皮层（somatosensory cortex）中的神经元响应听觉或触觉刺激。如果人们离开感觉皮层，研究其他皮层，则感受野的概念将变得不太明确。例如，在颞下皮层（inferotemporal cortex），神经元对物体的反应与物体的大小和位置无关。在工作记忆任务中，额叶皮层（frontal cortex）的神经元在根本没有刺激的时候活跃。在本书的第二部分，第三部分和第四部分中，我们介绍了神经元网络的感受野和记忆，其网络作为更大系统的一部分。目前，我们先返回到一个简单的，理想化的神经元。</p>
+<p><img src="https://pic2.zhimg.com/v2-22e510c4f9c5d3e02210ab0382511981_b.jpg"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Neuronal-Dynamics/" rel="tag"># Neuronal Dynamics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%95%B0%E5%AD%A6/" rel="prev" title="神经元与数学">
+                  <i class="fa fa-angle-left"></i> 神经元与数学
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/" rel="next" title="神经元动力学原理">
+                  神经元动力学原理 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">夏寒</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"jstzwj/blog-comment","repo_id":"R_kgDOKj26ZQ","category":"Comments","category_id":"DIC_kwDOKj26Zc4Ccx9-","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+
+</body>
+</html>

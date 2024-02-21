@@ -19,28 +19,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.han.moe","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="LLM，神奇，太神奇了。 事情是这样的。 做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。 第一次Loss NaN选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。 现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。 先进行了一些检查，排除了常见的一些原因：  输入包含NaN  权">
+    <meta name="description" content="翻译自：https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;Ch1.S2.html  1.2 神经元动力学原理脉冲对突触后神经元的影响可以用植入细胞内的电极来记录，该电极测量细胞内部与周围环境之间的电势差 $u(t)$ （译注：或称电位差）。这个电势差被称为膜电位。在没有任何输入的情况下，神经元处于静息状态（rest），对应于恒定的膜电位 $u_{rest}$ 。在脉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简单记一次NaN loss的调试">
-<meta property="og:url" content="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/index.html">
+<meta property="og:title" content="神经元动力学原理">
+<meta property="og:url" content="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="夏寒的咖啡馆">
-<meta property="og:description" content="LLM，神奇，太神奇了。 事情是这样的。 做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。 第一次Loss NaN选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。 现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。 先进行了一些检查，排除了常见的一些原因：  输入包含NaN  权">
+<meta property="og:description" content="翻译自：https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;Ch1.S2.html  1.2 神经元动力学原理脉冲对突触后神经元的影响可以用植入细胞内的电极来记录，该电极测量细胞内部与周围环境之间的电势差 $u(t)$ （译注：或称电位差）。这个电势差被称为膜电位。在没有任何输入的情况下，神经元处于静息状态（rest），对应于恒定的膜电位 $u_{rest}$ 。在脉">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-19T12:04:07.000Z">
-<meta property="article:modified_time" content="2024-02-18T12:18:57.367Z">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-592ba46ae2ee9c2cf973e9ed203bd054_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-e18a3a8bcbff51963426a8b5b800f6fa_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-44ef7e1adfb9e09b94712c269ea59413_b.jpg">
+<meta property="article:published_time" content="2024-02-21T06:30:33.000Z">
+<meta property="article:modified_time" content="2024-02-21T06:33:20.216Z">
 <meta property="article:author" content="夏寒">
-<meta property="article:tag" content="Deep Learning">
+<meta property="article:tag" content="Neuronal Dynamics">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/v2-592ba46ae2ee9c2cf973e9ed203bd054_b.jpg">
 
 
-<link rel="canonical" href="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/">
+<link rel="canonical" href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/","path":"2024/01/19/2023-12-27-记一次NaN loss的调试/","title":"简单记一次NaN loss的调试"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/","path":"2024/02/21/2024-02-21-神经元动力学原理/","title":"神经元动力学原理"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>简单记一次NaN loss的调试 | 夏寒的咖啡馆</title>
+<title>神经元动力学原理 | 夏寒的咖啡馆</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -114,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1Loss-NaN"><span class="nav-number">1.</span> <span class="nav-text">第一次Loss NaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1Loss-NaN"><span class="nav-number">2.</span> <span class="nav-text">第二次Loss NaN</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">1.2 神经元动力学原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-1-%E7%AA%81%E8%A7%A6%E5%90%8E%E7%94%B5%E4%BD%8D"><span class="nav-number">2.</span> <span class="nav-text">1.2.1 突触后电位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-2-%E5%8F%91%E5%B0%84%E9%98%88%E5%80%BC%E5%92%8C%E5%8A%A8%E4%BD%9C%E7%94%B5%E4%BD%8D"><span class="nav-number">3.</span> <span class="nav-text">1.2.2 发射阈值和动作电位</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text"></span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +177,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -186,12 +190,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="简单记一次NaN loss的调试 | 夏寒的咖啡馆">
+      <meta itemprop="name" content="神经元动力学原理 | 夏寒的咖啡馆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          简单记一次NaN loss的调试
+          神经元动力学原理
         </h1>
 
         <div class="post-meta-container">
@@ -201,15 +205,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-01-19 20:04:07" itemprop="dateCreated datePublished" datetime="2024-01-19T20:04:07+08:00">2024-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-02-18 20:18:57" itemprop="dateModified" datetime="2024-02-18T20:18:57+08:00">2024-02-18</time>
+      <time title="创建时间：2024-02-21 14:30:33 / 修改时间：14:33:20" itemprop="dateCreated datePublished" datetime="2024-02-21T14:30:33+08:00">2024-02-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -217,7 +215,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+          <a href="/categories/%E7%A5%9E%E7%BB%8F%E5%8A%A8%E5%8A%9B%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">神经动力学</span></a>
         </span>
     </span>
 
@@ -230,25 +228,28 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>LLM，神奇，太神奇了。</p>
-<p>事情是这样的。</p>
-<p>做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。</p>
-<h2 id="第一次Loss-NaN"><a href="#第一次Loss-NaN" class="headerlink" title="第一次Loss NaN"></a>第一次Loss NaN</h2><p>选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。</p>
-<p>现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。</p>
-<p>先进行了一些检查，排除了常见的一些原因：</p>
-<ul>
-<li><p>输入包含NaN</p>
-</li>
-<li><p>权重包含NaN</p>
-</li>
-<li><p>学习率过大</p>
-</li>
-</ul>
-<p>反复思考了一下，模型本身前向的过程应该是没问题的，从loss到回传梯度，到优化器优化中必有一处出现了NaN。默认的eps是1e-8。</p>
-<p>最后，确定了Adam优化器中eps参数过小（1e-9）导致了NaN loss。</p>
-<h2 id="第二次Loss-NaN"><a href="#第二次Loss-NaN" class="headerlink" title="第二次Loss NaN"></a>第二次Loss NaN</h2><p>这一次直接第一个step就发生了loss为NaN的情况。这次定位原因更简单一些。</p>
-<p>这一次是因为tokenizer padding side是在左侧，且pad token为eos，导致第一个token就是eos，后面的全部token都被mask掉了。</p>
-
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>翻译自：<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/Ch1.S2.html">https://neuronaldynamics.epfl.ch/online/Ch1.S2.html</a></p>
+</blockquote>
+<h1 id="1-2-神经元动力学原理"><a href="#1-2-神经元动力学原理" class="headerlink" title="1.2 神经元动力学原理"></a>1.2 神经元动力学原理</h1><p>脉冲对突触后神经元的影响可以用植入细胞内的电极来记录，该电极测量细胞内部与周围环境之间的电势差 $u(t)$ （译注：或称电位差）。这个电势差被称为膜电位。在没有任何输入的情况下，神经元处于静息状态（rest），对应于恒定的膜电位 $u_{rest}$ 。在脉冲到达后，电势发生变化，最后衰减到静息电势，参见图1.5A。如果变化是正的，突触被称作是兴奋性的（excitatory）。如果变化是负的，则突触是抑制性的（inhibitory）。</p>
+<p>在静息状态时，细胞膜已经被强烈负极化，膜电位约为-65 mV。兴奋性突触的输入会降低膜的负极化程度，因此称为去极化（depolarization）。如果输入使膜的负极化进一步增加，则称为超极化（hyperpolarization）。</p>
+<h1 id="1-2-1-突触后电位"><a href="#1-2-1-突触后电位" class="headerlink" title="1.2.1 突触后电位"></a>1.2.1 突触后电位</h1><p>让我们形式化以上观察。我们研究了神经元 $i$ 膜电位随时间的函数 $u_i(t)$ 。在输入脉冲到达之前，我们有 $u_i(t)&#x3D; u_{rest}$ 。在 $t &#x3D; 0$ 时，突触前神经元 $j$ 发射脉冲。对于 $t&gt;0$ ，我们在电极上看到神经元 $i$ 的响应如下</p>
+<p>$u_i(t)−u_{rest}&#x3D;:ϵ_{ij}(t). \tag{1.1} \ $ </p>
+<p>式(1.1)的右侧定义了突触后电位（postsynaptic potential）（PSP）。如果电压差 $u_i(t)-u_{rest}$ 为正（负），则我们具有兴奋性（抑制性）的突触后电位，或简称为EPSP (IPSP)。在图1.5A中，我们绘制了由神经元 $j$ 的脉冲到达神经元 $i$ 的兴奋性突触而引起的EPSP。</p>
+<p><img src="https://pic1.zhimg.com/v2-592ba46ae2ee9c2cf973e9ed203bd054_b.jpg"></p>
+<p><img src="https://pic3.zhimg.com/v2-e18a3a8bcbff51963426a8b5b800f6fa_b.jpg"></p>
+<p><img src="https://pic4.zhimg.com/v2-44ef7e1adfb9e09b94712c269ea59413_b.jpg"></p>
+<p>图1.5：突触后神经元 $i$ 从两个突触前神经元 $j&#x3D;1,2$ 接收输入。</p>
+<p>A.每个突触前脉冲引发的兴奋性突触后电位（EPSP）都可以用电极测量出电位差$u_i(t)-u_{rest}$ 。由神经元 $j&#x3D;1$ 的脉冲引起的EPSP随时间的函数为 $ ϵ_{i1}(t−t^{(f)}_1)$ 。</p>
+<p>B.来自第二个突触前神经元 $j &#x3D; 2$ 的脉冲在来自神经元 $j &#x3D; 1$ 的脉冲之后不久到达，导致第二个突触后电位叠加到了第一个突触后电位上去。</p>
+<p>C.一旦 $u_i(t)$ 达到阈值 $\vartheta$ ，就会触发动作电位。可以看到，膜电位开始大幅脉冲状正向偏移（箭头）。在图的纵坐标（也就是电压）上，脉冲的峰值超出范围。脉冲后，电压返回到低于静息电位 $u_{rest}$ 的值。</p>
+<h1 id="1-2-2-发射阈值和动作电位"><a href="#1-2-2-发射阈值和动作电位" class="headerlink" title="1.2.2 发射阈值和动作电位"></a>1.2.2 发射阈值和动作电位</h1><p>考虑两个突触前神经元 $j&#x3D;1,2$ ，它们都向突触后神经元 $i$ 发送脉冲信号。神经元 $j&#x3D;1$ 在 $t_1^{(1)},t_1^{(2)},…$ 时间点处发射脉冲，类似的，神经元 $j&#x3D;2$ 在 $t_2^{(1)},t_2^{(2)},…$ 时间点处发射脉冲。每个脉冲分别引起突触后电位 $\epsilon_ {i1}$ 或 $\epsilon_ {i2}$ 。只要输入脉冲很少，电位的总变化就大约是各个独立PSP的总和，</p>
+<p>$u_i(t)&#x3D;\sum_j{\sum_f{\epsilon_{ij}(t-t^{(f)}<em>j)+u</em>{rest}}} \tag{1.2}\$ </p>
+<p>即膜电位对输入脉冲线性响应；参见图1.5B。</p>
+<p>另一方面，如果在短时间内输入的脉冲太多，线性度就会下降。膜电位一旦达到临界值 $\vartheta$ ，其轨迹就会显示出与PSP的简单求和完全不同的行为：膜电位表现出幅度约为100 mV的脉冲状偏移。该短电压脉冲将沿着神经元 $i$ 的轴突传播到与其他神经元的突触。对许多类型的神经元而言，在脉冲之后，膜电位不会直接返回到静息电位，而是会经过一个低于静息值的超极化阶段。这种超极化现象称为“脉冲后电位”（spike-after potential）。</p>
+<p>单个EPSP的幅度在1 mV范围内。脉冲启动的临界值比静息电位高约20至30 mV。因此，在大多数神经元中，四个脉冲-如图1.5C所示-不足以触发动作电位。取而代之的是，大约20-50个突触前脉冲必须在短时间内到达，以触发突触后动作电位。</p>
+<p>$$<br>u_i(t)&#x3D;\sum_j{\sum_f{\epsilon_{ij}(t-t_j^{(f)})+u_{rest}}} \tag{1.2}\<br>$$</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
     </div>
 
     
@@ -257,21 +258,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
+              <a href="/tags/Neuronal-Dynamics/" rel="tag"># Neuronal Dynamics</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/10/22/2023-10-22-ChatGPT-and-16personalities/" rel="prev" title="ChatGPT and 16personalities">
-                  <i class="fa fa-angle-left"></i> ChatGPT and 16personalities
+                <a href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" rel="prev" title="神经系统原理">
+                  <i class="fa fa-angle-left"></i> 神经系统原理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/01/23/2024-01-23-TrueNAS%20Scale%20Zerotier%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" rel="next" title="TrueNAS Scale Zerotier安装和配置">
-                  TrueNAS Scale Zerotier安装和配置 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -344,7 +342,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 

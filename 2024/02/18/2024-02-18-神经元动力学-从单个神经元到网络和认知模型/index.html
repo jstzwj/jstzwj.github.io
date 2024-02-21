@@ -17,17 +17,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.han.moe","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.han.moe","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Photo by NASA on Unsplash本文翻译自-https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;index.html  本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》  当我们做出决定时，大脑会发生什么？是什么触发神经元发出信号？什么是神经编码？这本面向本科生和初学者的进阶教科书提供了关于计算和理">
+    <meta name="description" content="本文翻译自-https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;index.html  本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》  当我们做出决定时，大脑会发生什么？是什么触发神经元发出信号？什么是神经编码？这本面向本科生和初学者的进阶教科书提供了关于计算和理论神经科学领域的全面而最新的介绍。它涵盖了许多经典">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经元动力学-从单个神经元到网络和认知模型">
 <meta property="og:url" content="https://blog.han.moe/2024/02/18/2024-02-18-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E4%BB%8E%E5%8D%95%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%88%B0%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="夏寒的咖啡馆">
-<meta property="og:description" content="Photo by NASA on Unsplash本文翻译自-https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;index.html  本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》  当我们做出决定时，大脑会发生什么？是什么触发神经元发出信号？什么是神经编码？这本面向本科生和初学者的进阶教科书提供了关于计算和理">
+<meta property="og:description" content="本文翻译自-https:&#x2F;&#x2F;neuronaldynamics.epfl.ch&#x2F;online&#x2F;index.html  本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》  当我们做出决定时，大脑会发生什么？是什么触发神经元发出信号？什么是神经编码？这本面向本科生和初学者的进阶教科书提供了关于计算和理论神经科学领域的全面而最新的介绍。它涵盖了许多经典">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-02-18T12:02:19.000Z">
-<meta property="article:modified_time" content="2024-02-18T12:39:44.055Z">
+<meta property="article:modified_time" content="2024-02-21T06:33:13.856Z">
 <meta property="article:author" content="夏寒">
 <meta property="article:tag" content="Neuronal Dynamics">
 <meta name="twitter:card" content="summary">
@@ -65,6 +65,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -85,6 +88,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+  </ul>
+</nav>
 
 
 
@@ -120,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -130,8 +137,9 @@
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+          <a href="/tags/">
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -193,9 +201,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-02-18 20:02:19 / 修改时间：20:39:44" itemprop="dateCreated datePublished" datetime="2024-02-18T20:02:19+08:00">2024-02-18</time>
+      <time title="创建时间：2024-02-18 20:02:19" itemprop="dateCreated datePublished" datetime="2024-02-18T20:02:19+08:00">2024-02-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-21 14:33:13" itemprop="dateModified" datetime="2024-02-21T14:33:13+08:00">2024-02-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -217,7 +231,7 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>Photo by <a target="_blank" rel="noopener" href="https://unsplash.com/@nasa?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">NASA</a> on <a target="_blank" rel="noopener" href="https://unsplash.com/s/photos/science?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>本文翻译自-<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/index.html">https://neuronaldynamics.epfl.ch/online/index.html</a></p>
+<p>本文翻译自-<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/index.html">https://neuronaldynamics.epfl.ch/online/index.html</a></p>
 </blockquote>
 <p>本系列文章的内容翻译自Wulfram Gerstner等人写的《Neuronal Dynamics》</p>
 <blockquote>
@@ -227,7 +241,7 @@
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/45208720">石在：脉冲神经网络简明教程 第一章：神经元的生物基础</a></p>
 <p>本系列从该文章提到的书《Neuronal Dynamics》出发，以翻译为基础，并添加一些笔记。</p>
 <p>此外我也不是该专业的学生。如有错误，望不吝赐教。</p>
-<h1 id="第一部分-神经元动力学基础"><a href="#第一部分-神经元动力学基础" class="headerlink" title="第一部分 神经元动力学基础"></a>第一部分 神经元动力学基础</h1><h2 id="第一章-简介-神经元与数学"><a href="#第一章-简介-神经元与数学" class="headerlink" title="第一章 简介-神经元与数学"></a>第一章 简介-神经元与数学</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138874796">夏寒：Neuronal Dynamics(1)-神经元与数学</a></p>
+<h1 id="第一部分-神经元动力学基础"><a href="#第一部分-神经元动力学基础" class="headerlink" title="第一部分 神经元动力学基础"></a>第一部分 神经元动力学基础</h1><h2 id="第一章-简介-神经元与数学"><a href="#第一章-简介-神经元与数学" class="headerlink" title="第一章 简介-神经元与数学"></a>第一章 简介-神经元与数学</h2><p><a href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%95%B0%E5%AD%A6/">夏寒：Neuronal Dynamics(1)-神经元与数学</a></p>
 <h2 id="第二章-离子通道和Hodgkin-Huxley模型"><a href="#第二章-离子通道和Hodgkin-Huxley模型" class="headerlink" title="第二章 离子通道和Hodgkin-Huxley模型"></a>第二章 离子通道和Hodgkin-Huxley模型</h2><h2 id="第三章-树突和突触"><a href="#第三章-树突和突触" class="headerlink" title="第三章 树突和突触"></a>第三章 树突和突触</h2><h2 id="第四章-维度约简和相平面分析"><a href="#第四章-维度约简和相平面分析" class="headerlink" title="第四章 维度约简和相平面分析"></a>第四章 维度约简和相平面分析</h2><h1 id="第二部分-广义积分-激发神经元"><a href="#第二部分-广义积分-激发神经元" class="headerlink" title="第二部分 广义积分-激发神经元"></a>第二部分 广义积分-激发神经元</h1><h2 id="第五章-非线性积分-激发模型"><a href="#第五章-非线性积分-激发模型" class="headerlink" title="第五章 非线性积分-激发模型"></a>第五章 非线性积分-激发模型</h2><h2 id="第六章-适应性和放电模式"><a href="#第六章-适应性和放电模式" class="headerlink" title="第六章 适应性和放电模式"></a>第六章 适应性和放电模式</h2><h2 id="第七章-尖峰列和神经编码的变异性"><a href="#第七章-尖峰列和神经编码的变异性" class="headerlink" title="第七章 尖峰列和神经编码的变异性"></a>第七章 尖峰列和神经编码的变异性</h2><h2 id="第八章-噪声输入模型：尖峰到达的齐射"><a href="#第八章-噪声输入模型：尖峰到达的齐射" class="headerlink" title="第八章 噪声输入模型：尖峰到达的齐射"></a>第八章 噪声输入模型：尖峰到达的齐射</h2><h2 id="第九章-噪声输出：逃逸率和软阈值"><a href="#第九章-噪声输出：逃逸率和软阈值" class="headerlink" title="第九章 噪声输出：逃逸率和软阈值"></a>第九章 噪声输出：逃逸率和软阈值</h2><h2 id="第十章-模型估计"><a href="#第十章-模型估计" class="headerlink" title="第十章 模型估计"></a>第十章 模型估计</h2><h2 id="第十一章-利用随机神经元模型进行编码和解码"><a href="#第十一章-利用随机神经元模型进行编码和解码" class="headerlink" title="第十一章 利用随机神经元模型进行编码和解码"></a>第十一章 利用随机神经元模型进行编码和解码</h2><h1 id="第三部分-神经元网络和群体活动"><a href="#第三部分-神经元网络和群体活动" class="headerlink" title="第三部分 神经元网络和群体活动"></a>第三部分 神经元网络和群体活动</h1><h2 id="第十二章-神经元群体"><a href="#第十二章-神经元群体" class="headerlink" title="第十二章 神经元群体"></a>第十二章 神经元群体</h2><h2 id="第十三章-连续性方程和福克-普朗克方法"><a href="#第十三章-连续性方程和福克-普朗克方法" class="headerlink" title="第十三章 连续性方程和福克-普朗克方法"></a>第十三章 连续性方程和福克-普朗克方法</h2><h2 id="第十四章-积分方程方法"><a href="#第十四章-积分方程方法" class="headerlink" title="第十四章 积分方程方法"></a>第十四章 积分方程方法</h2><h2 id="第十五章-快速瞬变和速率模型"><a href="#第十五章-快速瞬变和速率模型" class="headerlink" title="第十五章 快速瞬变和速率模型"></a>第十五章 快速瞬变和速率模型</h2><h1 id="第四部分-认知动力学"><a href="#第四部分-认知动力学" class="headerlink" title="第四部分 认知动力学"></a>第四部分 认知动力学</h1><h2 id="第十六章-竞争群体和决策制定"><a href="#第十六章-竞争群体和决策制定" class="headerlink" title="第十六章 竞争群体和决策制定"></a>第十六章 竞争群体和决策制定</h2><h2 id="第十七章-记忆和吸引子动力学"><a href="#第十七章-记忆和吸引子动力学" class="headerlink" title="第十七章 记忆和吸引子动力学"></a>第十七章 记忆和吸引子动力学</h2><h2 id="第十八章-感知的皮层场模型"><a href="#第十八章-感知的皮层场模型" class="headerlink" title="第十八章 感知的皮层场模型"></a>第十八章 感知的皮层场模型</h2><h2 id="第十九章-突触可塑性和学习"><a href="#第十九章-突触可塑性和学习" class="headerlink" title="第十九章 突触可塑性和学习"></a>第十九章 突触可塑性和学习</h2><h2 id="第二十章-展望：可塑网络中的动力学"><a href="#第二十章-展望：可塑网络中的动力学" class="headerlink" title="第二十章 展望：可塑网络中的动力学"></a>第二十章 展望：可塑网络中的动力学</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="第一版勘误"><a href="#第一版勘误" class="headerlink" title="第一版勘误"></a>第一版勘误</h1>
     </div>
 
@@ -249,6 +263,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%95%B0%E5%AD%A6/" rel="next" title="神经元与数学">
+                  神经元与数学 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -317,6 +334,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 <script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"jstzwj/blog-comment","repo_id":"R_kgDOKj26ZQ","category":"Comments","category_id":"DIC_kwDOKj26Zc4Ccx9-","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
