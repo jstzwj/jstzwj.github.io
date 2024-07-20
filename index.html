@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">5</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">8</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">7</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">9</span></a></li>
   </ul>
 </nav>
 
@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -157,6 +157,95 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/07/20/2024-07-20-DELL-T640%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/20/2024-07-20-DELL-T640%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3/" class="post-title-link" itemprop="url">2024-07-20-DELL-T640风扇噪音</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-07-20 20:00:56 / 修改时间：22:56:04" itemprop="dateCreated datePublished" datetime="2024-07-20T20:00:56+08:00">2024-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="DELL-T640的风扇噪音问题解决方法"><a href="#DELL-T640的风扇噪音问题解决方法" class="headerlink" title="DELL T640的风扇噪音问题解决方法"></a>DELL T640的风扇噪音问题解决方法</h1><p>实验室中有一台DELL T640工作站，但在插着一张RTX3080的情况下，风扇噪音大的飞起，和机房里面的服务器一样。<br>搜索一番说是因为硬件和机器不匹配，导致机器误以为硬件会过热，便把风扇开到最大。</p>
+<p>这篇博客将介绍如何通过调整风扇转速来解决T640的噪音问题。</p>
+<p>在开始之前，请确保iDrac版本为3.30.30.30，因为新版的iDrac不支持从ipmi手动控制风扇转速。因此该方法需要使用旧版本的iDrac。以下是解决噪音问题的步骤：</p>
+<h2 id="步骤-1：开启手动服务器风扇条件"><a href="#步骤-1：开启手动服务器风扇条件" class="headerlink" title="步骤 1：开启手动服务器风扇条件"></a>步骤 1：开启手动服务器风扇条件</h2><p>首先，需要通过以下命令开启手动服务器风扇控制：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ipmitool -I lanplus -H &lt;IP地址&gt; -U &lt;用户名&gt; -P &lt;密码&gt; raw 0x30 0x30 0x01 0x00</span><br></pre></td></tr></table></figure>
+
+<p>该命令将设置服务器的风扇控制模式为手动模式，这样您就可以手动调整风扇转速。</p>
+<h2 id="步骤-2：设置风扇转速"><a href="#步骤-2：设置风扇转速" class="headerlink" title="步骤 2：设置风扇转速"></a>步骤 2：设置风扇转速</h2><p>接下来，使用以下命令来设置风扇的转速：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ipmitool -I lanplus -H &lt;IP地址&gt; -U &lt;用户名&gt; -P &lt;密码&gt; raw 0x30 0x30 0x02 0xff 0x0a</span><br></pre></td></tr></table></figure>
+
+<p>在上述命令中，<code>0xff</code>代表风扇的索引号，<code>0x0a</code>代表所设置的转速值。<br>如果设置为最小<code>0x01</code>则机器则会视为风扇损坏，风扇会自动提速到30%左右。<br>而设置到<code>0x0a</code>则正好视作风扇为健康状态，10%的转速也不再产生噪音。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -194,9 +283,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-02-21 14:30:33 / 修改时间：14:33:20" itemprop="dateCreated datePublished" datetime="2024-02-21T14:30:33+08:00">2024-02-21</time>
+      <time title="创建时间：2024-02-21 14:30:33" itemprop="dateCreated datePublished" datetime="2024-02-21T14:30:33+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-22 13:03:13" itemprop="dateModified" datetime="2024-02-22T13:03:13+08:00">2024-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -223,7 +318,7 @@
 </blockquote>
 <h1 id="1-2-神经元动力学原理"><a href="#1-2-神经元动力学原理" class="headerlink" title="1.2 神经元动力学原理"></a>1.2 神经元动力学原理</h1><p>脉冲对突触后神经元的影响可以用植入细胞内的电极来记录，该电极测量细胞内部与周围环境之间的电势差 $u(t)$ （译注：或称电位差）。这个电势差被称为膜电位。在没有任何输入的情况下，神经元处于静息状态（rest），对应于恒定的膜电位 $u_{rest}$ 。在脉冲到达后，电势发生变化，最后衰减到静息电势，参见图1.5A。如果变化是正的，突触被称作是兴奋性的（excitatory）。如果变化是负的，则突触是抑制性的（inhibitory）。</p>
 <p>在静息状态时，细胞膜已经被强烈负极化，膜电位约为-65 mV。兴奋性突触的输入会降低膜的负极化程度，因此称为去极化（depolarization）。如果输入使膜的负极化进一步增加，则称为超极化（hyperpolarization）。</p>
-<h1 id="1-2-1-突触后电位"><a href="#1-2-1-突触后电位" class="headerlink" title="1.2.1 突触后电位"></a>1.2.1 突触后电位</h1><p>让我们形式化以上观察。我们研究了神经元 $i$ 膜电位随时间的函数 $u_i(t)$ 。在输入脉冲到达之前，我们有 $u_i(t)&#x3D; u_{rest}$ 。在 $t &#x3D; 0$ 时，突触前神经元 $j$ 发射脉冲。对于 $t&gt;0$ ，我们在电极上看到神经元 $i$ 的响应如下</p>
+<h1 id="1-2-1-突触后电位"><a href="#1-2-1-突触后电位" class="headerlink" title="1.2.1 突触后电位"></a>1.2.1 突触后电位</h1><p>让我们形式化以上观察。我们研究了神经元 $i$ 膜电位随时间的函数 $u_i(t)$ 。在输入脉冲到达之前，我们有 $u_i(t)&#x3D; u_{rest}$ 。在 $t &#x3D; 0$ 时，突触前神经元 $j$ 发放脉冲。对于 $t&gt;0$ ，我们在电极上看到神经元 $i$ 的响应如下</p>
 <p>$u_i(t)−u_{rest}&#x3D;:ϵ_{ij}(t). \tag{1.1} \ $ </p>
 <p>式(1.1)的右侧定义了突触后电位（postsynaptic potential）（PSP）。如果电压差 $u_i(t)-u_{rest}$ 为正（负），则我们具有兴奋性（抑制性）的突触后电位，或简称为EPSP (IPSP)。在图1.5A中，我们绘制了由神经元 $j$ 的脉冲到达神经元 $i$ 的兴奋性突触而引起的EPSP。</p>
 <p><img src="https://pic1.zhimg.com/v2-592ba46ae2ee9c2cf973e9ed203bd054_b.jpg"></p>
@@ -233,7 +328,7 @@
 <p>A.每个突触前脉冲引发的兴奋性突触后电位（EPSP）都可以用电极测量出电位差$u_i(t)-u_{rest}$ 。由神经元 $j&#x3D;1$ 的脉冲引起的EPSP随时间的函数为 $ ϵ_{i1}(t−t^{(f)}_1)$ 。</p>
 <p>B.来自第二个突触前神经元 $j &#x3D; 2$ 的脉冲在来自神经元 $j &#x3D; 1$ 的脉冲之后不久到达，导致第二个突触后电位叠加到了第一个突触后电位上去。</p>
 <p>C.一旦 $u_i(t)$ 达到阈值 $\vartheta$ ，就会触发动作电位。可以看到，膜电位开始大幅脉冲状正向偏移（箭头）。在图的纵坐标（也就是电压）上，脉冲的峰值超出范围。脉冲后，电压返回到低于静息电位 $u_{rest}$ 的值。</p>
-<h1 id="1-2-2-发射阈值和动作电位"><a href="#1-2-2-发射阈值和动作电位" class="headerlink" title="1.2.2 发射阈值和动作电位"></a>1.2.2 发射阈值和动作电位</h1><p>考虑两个突触前神经元 $j&#x3D;1,2$ ，它们都向突触后神经元 $i$ 发送脉冲信号。神经元 $j&#x3D;1$ 在 $t_1^{(1)},t_1^{(2)},…$ 时间点处发射脉冲，类似的，神经元 $j&#x3D;2$ 在 $t_2^{(1)},t_2^{(2)},…$ 时间点处发射脉冲。每个脉冲分别引起突触后电位 $\epsilon_ {i1}$ 或 $\epsilon_ {i2}$ 。只要输入脉冲很少，电位的总变化就大约是各个独立PSP的总和，</p>
+<h1 id="1-2-2-发放阈值和动作电位"><a href="#1-2-2-发放阈值和动作电位" class="headerlink" title="1.2.2 发放阈值和动作电位"></a>1.2.2 发放阈值和动作电位</h1><p>考虑两个突触前神经元 $j&#x3D;1,2$ ，它们都向突触后神经元 $i$ 发送脉冲信号。神经元 $j&#x3D;1$ 在 $t_1^{(1)},t_1^{(2)},…$ 时间点处发放脉冲，类似的，神经元 $j&#x3D;2$ 在 $t_2^{(1)},t_2^{(2)},…$ 时间点处发放脉冲。每个脉冲分别引起突触后电位 $\epsilon_ {i1}$ 或 $\epsilon_ {i2}$ 。只要输入脉冲很少，电位的总变化就大约是各个独立PSP的总和，</p>
 <p>$u_i(t)&#x3D;\sum_j{\sum_f{\epsilon_{ij}(t-t^{(f)}<em>j)+u</em>{rest}}} \tag{1.2}\$ </p>
 <p>即膜电位对输入脉冲线性响应；参见图1.5B。</p>
 <p>另一方面，如果在短时间内输入的脉冲太多，线性度就会下降。膜电位一旦达到临界值 $\vartheta$ ，其轨迹就会显示出与PSP的简单求和完全不同的行为：膜电位表现出幅度约为100 mV的脉冲状偏移。该短电压脉冲将沿着神经元 $i$ 的轴突传播到与其他神经元的突触。对许多类型的神经元而言，在脉冲之后，膜电位不会直接返回到静息电位，而是会经过一个低于静息值的超极化阶段。这种超极化现象称为“脉冲后电位”（spike-after potential）。</p>
@@ -293,9 +388,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-02-21 14:08:25 / 修改时间：14:33:25" itemprop="dateCreated datePublished" datetime="2024-02-21T14:08:25+08:00">2024-02-21</time>
+      <time title="创建时间：2024-02-21 14:08:25" itemprop="dateCreated datePublished" datetime="2024-02-21T14:08:25+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-22 13:03:20" itemprop="dateModified" datetime="2024-02-22T13:03:20+08:00">2024-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -332,7 +433,7 @@
 <h1 id="1-1-2-脉冲序列"><a href="#1-1-2-脉冲序列" class="headerlink" title="1.1.2 脉冲序列"></a>1.1.2 脉冲序列</h1><p>神经元信号由短电脉冲组成，可以通过在神经元胞体上或靠近神经元的轴突上放置细电极来观察。参见图1.2。</p>
 <p>脉冲（pulse），即所谓的动作电位（action potential）或神经脉冲（spike），具有大约100 mV的幅度，通常为1-2 ms的持续时间。随着动作电位沿轴突传播，脉冲的形式不会改变。由单个神经元发出的一系列动作电位称为脉冲序列-一系列有固定模式的事件，以规则或不规则的间隔发生；参见图1.3。由于神经元的每个脉冲看起来都很相似，因此动作电位本身不携带任何信息。重要的是脉冲的数量和时间。动作电位是信号传输的基本单位。</p>
 <p><img src="https://pic1.zhimg.com/v2-6b604be263191d30d62381193589466c_b.jpg"></p>
-<p>脉冲序列中的动作电位通常会很好地分开。即使输入非常强，也无法在第一个脉冲期间或之后立刻发射第二个脉冲。两个脉冲之间的最小距离定义为神经元的绝对不应期。在绝对不应期之后是相对不应期。在相对不应期阶段中，神经元虽然很难但还是有可能激发动作电位。</p>
+<p>脉冲序列中的动作电位通常会很好地分开。即使输入非常强，也无法在第一个脉冲期间或之后立刻发放第二个脉冲。两个脉冲之间的最小距离定义为神经元的绝对不应期。在绝对不应期之后是相对不应期。在相对不应期阶段中，神经元虽然很难但还是有可能激发动作电位。</p>
 <h1 id="1-1-3-突触"><a href="#1-1-3-突触" class="headerlink" title="1.1.3 突触"></a>1.1.3 突触</h1><p>突触前神经元的轴突与突触后细胞的树突（或胞体）接触的部位就是突触。脊椎动物大脑中最常见的突触是化学突触（chemical synapse）。在化学突触处，轴突末端非常接近突触后神经元，突触前和突触后细胞膜之间只留下一个微小的间隙。这就是所谓的突触间隙（synaptic cleft）。当一个动作电位到达突触时，会引发一连串复杂的生物化学反应，导致神经递质（neurotransmitter）从突触前端释放到突触间隙中。一旦神经递质分子到达突触后端，就会被突触后细胞膜上的特异性受体检测到，并导致（直接或间接通过生物化学信号链）神经元打开特定的通道，使细胞外液体中的离子流入细胞内。反过来，离子的流入又改变了突触后的膜电位，从而最终将化学信号转化为电反应。突触后神经元对突触前脉冲的电压反应称为突触后电位（postsynaptic potential）。</p>
 <p>除化学突触外，神经元还可以通过电突触（electrical synapse）连接，有时称为间隙连接（gap junction）。专门的膜蛋白在两个神经元之间建立直接的电连接。关于间隙连接的功能方面人们知之甚少，但它们通常被认为与神经元的同步有关。</p>
 <h1 id="1-1-4-神经元是庞大系统的一部分"><a href="#1-1-4-神经元是庞大系统的一部分" class="headerlink" title="1.1.4 神经元是庞大系统的一部分"></a>1.1.4 神经元是庞大系统的一部分</h1><p>神经元分布在由数十亿其他神经元和胶质细胞组成的脑组织网络中。大脑是由不同的区域组成的。大脑皮层可以被认为是由神经元组成的长长的薄片，折叠起来覆盖在其他大脑结构之上。有些皮层区域主要参与处理感觉输入，其他区域参与工作记忆或运动控制等。</p>
@@ -394,9 +495,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-02-21 14:07:03 / 修改时间：14:33:17" itemprop="dateCreated datePublished" datetime="2024-02-21T14:07:03+08:00">2024-02-21</time>
+      <time title="创建时间：2024-02-21 14:07:03" itemprop="dateCreated datePublished" datetime="2024-02-21T14:07:03+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-22 13:01:26" itemprop="dateModified" datetime="2024-02-22T13:01:26+08:00">2024-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -421,7 +528,7 @@
           <blockquote>
 <p>翻译自：<a target="_blank" rel="noopener" href="https://neuronaldynamics.epfl.ch/online/Ch1.html">https://neuronaldynamics.epfl.ch/online/Ch1.html</a></p>
 </blockquote>
-<p>本章的主要目的是介绍神经科学的几个基本概念，特别是动作电位（action potentials）、突触后电位（postsynaptic potentials）、发射阈值（firing thresholds）、不应性（refractoriness）和适应性（adaptation）等概念。基于这些概念，我们建立了一个初步的神经元动力学模型，这个简单的模型（leaky integrate-and-fire model）将作为本书第二和第三部分讨论的广义积分发射模型（generalized integrate-and-fire model）的起点和参考。由于简单模型所使用的数学基本上是一维线性微分方程的数学，所以我们将以这一章为契机，介绍一些将在全书其余部分中使用的数学符号。</p>
+<p>本章的主要目的是介绍神经科学的几个基本概念，特别是动作电位（action potentials）、突触后电位（postsynaptic potentials）、发放阈值（firing thresholds）、不应性（refractoriness）和适应性（adaptation）等概念。基于这些概念，我们建立了一个初步的神经元动力学模型，这个简单的模型（leaky integrate-and-fire model）将作为本书第二和第三部分讨论的广义整合发放模型（generalized integrate-and-fire model）的起点和参考。由于简单模型所使用的数学基本上是一维线性微分方程的数学，所以我们将以这一章为契机，介绍一些将在全书其余部分中使用的数学符号。</p>
 <p>由于篇幅所限，我们不能也不想对神经生物学这样一个复杂的领域作全面的介绍。因此，本章中对生物学背景的介绍是有选择的，主要集中介绍本书提到的理论工作的生物学背景。要想深入探讨神经生物学，可以参考本章末尾提到的文献。</p>
 <p>在回顾了1.1和1.2节中的神经元特性之后，我们将在1.3节中得到我们的第一个数学神经元模型。最后两节将专门讨论简化模型的优点和局限性。</p>
 <h1 id="1-1-神经系统原理"><a href="#1-1-神经系统原理" class="headerlink" title="1.1 神经系统原理"></a>1.1 神经系统原理</h1><p><a href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/">夏寒：Neuronal Dynamics(1.1)-神经系统原理</a></p>
@@ -488,7 +595,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-02-21 14:33:13" itemprop="dateModified" datetime="2024-02-21T14:33:13+08:00">2024-02-21</time>
+      <time title="修改时间：2024-02-22 13:03:39" itemprop="dateModified" datetime="2024-02-22T13:03:39+08:00">2024-02-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -522,7 +629,7 @@
 <p>本系列从该文章提到的书《Neuronal Dynamics》出发，以翻译为基础，并添加一些笔记。</p>
 <p>此外我也不是该专业的学生。如有错误，望不吝赐教。</p>
 <h1 id="第一部分-神经元动力学基础"><a href="#第一部分-神经元动力学基础" class="headerlink" title="第一部分 神经元动力学基础"></a>第一部分 神经元动力学基础</h1><h2 id="第一章-简介-神经元与数学"><a href="#第一章-简介-神经元与数学" class="headerlink" title="第一章 简介-神经元与数学"></a>第一章 简介-神经元与数学</h2><p><a href="https://blog.han.moe/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%95%B0%E5%AD%A6/">夏寒：Neuronal Dynamics(1)-神经元与数学</a></p>
-<h2 id="第二章-离子通道和Hodgkin-Huxley模型"><a href="#第二章-离子通道和Hodgkin-Huxley模型" class="headerlink" title="第二章 离子通道和Hodgkin-Huxley模型"></a>第二章 离子通道和Hodgkin-Huxley模型</h2><h2 id="第三章-树突和突触"><a href="#第三章-树突和突触" class="headerlink" title="第三章 树突和突触"></a>第三章 树突和突触</h2><h2 id="第四章-维度约简和相平面分析"><a href="#第四章-维度约简和相平面分析" class="headerlink" title="第四章 维度约简和相平面分析"></a>第四章 维度约简和相平面分析</h2><h1 id="第二部分-广义积分-激发神经元"><a href="#第二部分-广义积分-激发神经元" class="headerlink" title="第二部分 广义积分-激发神经元"></a>第二部分 广义积分-激发神经元</h1><h2 id="第五章-非线性积分-激发模型"><a href="#第五章-非线性积分-激发模型" class="headerlink" title="第五章 非线性积分-激发模型"></a>第五章 非线性积分-激发模型</h2><h2 id="第六章-适应性和放电模式"><a href="#第六章-适应性和放电模式" class="headerlink" title="第六章 适应性和放电模式"></a>第六章 适应性和放电模式</h2><h2 id="第七章-尖峰列和神经编码的变异性"><a href="#第七章-尖峰列和神经编码的变异性" class="headerlink" title="第七章 尖峰列和神经编码的变异性"></a>第七章 尖峰列和神经编码的变异性</h2><h2 id="第八章-噪声输入模型：尖峰到达的齐射"><a href="#第八章-噪声输入模型：尖峰到达的齐射" class="headerlink" title="第八章 噪声输入模型：尖峰到达的齐射"></a>第八章 噪声输入模型：尖峰到达的齐射</h2><h2 id="第九章-噪声输出：逃逸率和软阈值"><a href="#第九章-噪声输出：逃逸率和软阈值" class="headerlink" title="第九章 噪声输出：逃逸率和软阈值"></a>第九章 噪声输出：逃逸率和软阈值</h2><h2 id="第十章-模型估计"><a href="#第十章-模型估计" class="headerlink" title="第十章 模型估计"></a>第十章 模型估计</h2><h2 id="第十一章-利用随机神经元模型进行编码和解码"><a href="#第十一章-利用随机神经元模型进行编码和解码" class="headerlink" title="第十一章 利用随机神经元模型进行编码和解码"></a>第十一章 利用随机神经元模型进行编码和解码</h2><h1 id="第三部分-神经元网络和群体活动"><a href="#第三部分-神经元网络和群体活动" class="headerlink" title="第三部分 神经元网络和群体活动"></a>第三部分 神经元网络和群体活动</h1><h2 id="第十二章-神经元群体"><a href="#第十二章-神经元群体" class="headerlink" title="第十二章 神经元群体"></a>第十二章 神经元群体</h2><h2 id="第十三章-连续性方程和福克-普朗克方法"><a href="#第十三章-连续性方程和福克-普朗克方法" class="headerlink" title="第十三章 连续性方程和福克-普朗克方法"></a>第十三章 连续性方程和福克-普朗克方法</h2><h2 id="第十四章-积分方程方法"><a href="#第十四章-积分方程方法" class="headerlink" title="第十四章 积分方程方法"></a>第十四章 积分方程方法</h2><h2 id="第十五章-快速瞬变和速率模型"><a href="#第十五章-快速瞬变和速率模型" class="headerlink" title="第十五章 快速瞬变和速率模型"></a>第十五章 快速瞬变和速率模型</h2><h1 id="第四部分-认知动力学"><a href="#第四部分-认知动力学" class="headerlink" title="第四部分 认知动力学"></a>第四部分 认知动力学</h1><h2 id="第十六章-竞争群体和决策制定"><a href="#第十六章-竞争群体和决策制定" class="headerlink" title="第十六章 竞争群体和决策制定"></a>第十六章 竞争群体和决策制定</h2><h2 id="第十七章-记忆和吸引子动力学"><a href="#第十七章-记忆和吸引子动力学" class="headerlink" title="第十七章 记忆和吸引子动力学"></a>第十七章 记忆和吸引子动力学</h2><h2 id="第十八章-感知的皮层场模型"><a href="#第十八章-感知的皮层场模型" class="headerlink" title="第十八章 感知的皮层场模型"></a>第十八章 感知的皮层场模型</h2><h2 id="第十九章-突触可塑性和学习"><a href="#第十九章-突触可塑性和学习" class="headerlink" title="第十九章 突触可塑性和学习"></a>第十九章 突触可塑性和学习</h2><h2 id="第二十章-展望：可塑网络中的动力学"><a href="#第二十章-展望：可塑网络中的动力学" class="headerlink" title="第二十章 展望：可塑网络中的动力学"></a>第二十章 展望：可塑网络中的动力学</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="第一版勘误"><a href="#第一版勘误" class="headerlink" title="第一版勘误"></a>第一版勘误</h1>
+<h2 id="第二章-离子通道和Hodgkin-Huxley模型"><a href="#第二章-离子通道和Hodgkin-Huxley模型" class="headerlink" title="第二章 离子通道和Hodgkin-Huxley模型"></a>第二章 离子通道和Hodgkin-Huxley模型</h2><h2 id="第三章-树突和突触"><a href="#第三章-树突和突触" class="headerlink" title="第三章 树突和突触"></a>第三章 树突和突触</h2><h2 id="第四章-维度约简和相平面分析"><a href="#第四章-维度约简和相平面分析" class="headerlink" title="第四章 维度约简和相平面分析"></a>第四章 维度约简和相平面分析</h2><h1 id="第二部分-广义整合发放神经元"><a href="#第二部分-广义整合发放神经元" class="headerlink" title="第二部分 广义整合发放神经元"></a>第二部分 广义整合发放神经元</h1><h2 id="第五章-非线性整合发放模型"><a href="#第五章-非线性整合发放模型" class="headerlink" title="第五章 非线性整合发放模型"></a>第五章 非线性整合发放模型</h2><h2 id="第六章-适应性和放电模式"><a href="#第六章-适应性和放电模式" class="headerlink" title="第六章 适应性和放电模式"></a>第六章 适应性和放电模式</h2><h2 id="第七章-尖峰列和神经编码的变异性"><a href="#第七章-尖峰列和神经编码的变异性" class="headerlink" title="第七章 尖峰列和神经编码的变异性"></a>第七章 尖峰列和神经编码的变异性</h2><h2 id="第八章-噪声输入模型：尖峰到达的齐射"><a href="#第八章-噪声输入模型：尖峰到达的齐射" class="headerlink" title="第八章 噪声输入模型：尖峰到达的齐射"></a>第八章 噪声输入模型：尖峰到达的齐射</h2><h2 id="第九章-噪声输出：逃逸率和软阈值"><a href="#第九章-噪声输出：逃逸率和软阈值" class="headerlink" title="第九章 噪声输出：逃逸率和软阈值"></a>第九章 噪声输出：逃逸率和软阈值</h2><h2 id="第十章-模型估计"><a href="#第十章-模型估计" class="headerlink" title="第十章 模型估计"></a>第十章 模型估计</h2><h2 id="第十一章-利用随机神经元模型进行编码和解码"><a href="#第十一章-利用随机神经元模型进行编码和解码" class="headerlink" title="第十一章 利用随机神经元模型进行编码和解码"></a>第十一章 利用随机神经元模型进行编码和解码</h2><h1 id="第三部分-神经元网络和群体活动"><a href="#第三部分-神经元网络和群体活动" class="headerlink" title="第三部分 神经元网络和群体活动"></a>第三部分 神经元网络和群体活动</h1><h2 id="第十二章-神经元群体"><a href="#第十二章-神经元群体" class="headerlink" title="第十二章 神经元群体"></a>第十二章 神经元群体</h2><h2 id="第十三章-连续性方程和福克-普朗克方法"><a href="#第十三章-连续性方程和福克-普朗克方法" class="headerlink" title="第十三章 连续性方程和福克-普朗克方法"></a>第十三章 连续性方程和福克-普朗克方法</h2><h2 id="第十四章-积分方程方法"><a href="#第十四章-积分方程方法" class="headerlink" title="第十四章 积分方程方法"></a>第十四章 积分方程方法</h2><h2 id="第十五章-快速瞬变和速率模型"><a href="#第十五章-快速瞬变和速率模型" class="headerlink" title="第十五章 快速瞬变和速率模型"></a>第十五章 快速瞬变和速率模型</h2><h1 id="第四部分-认知动力学"><a href="#第四部分-认知动力学" class="headerlink" title="第四部分 认知动力学"></a>第四部分 认知动力学</h1><h2 id="第十六章-竞争群体和决策制定"><a href="#第十六章-竞争群体和决策制定" class="headerlink" title="第十六章 竞争群体和决策制定"></a>第十六章 竞争群体和决策制定</h2><h2 id="第十七章-记忆和吸引子动力学"><a href="#第十七章-记忆和吸引子动力学" class="headerlink" title="第十七章 记忆和吸引子动力学"></a>第十七章 记忆和吸引子动力学</h2><h2 id="第十八章-感知的皮层场模型"><a href="#第十八章-感知的皮层场模型" class="headerlink" title="第十八章 感知的皮层场模型"></a>第十八章 感知的皮层场模型</h2><h2 id="第十九章-突触可塑性和学习"><a href="#第十九章-突触可塑性和学习" class="headerlink" title="第十九章 突触可塑性和学习"></a>第十九章 突触可塑性和学习</h2><h2 id="第二十章-展望：可塑网络中的动力学"><a href="#第二十章-展望：可塑网络中的动力学" class="headerlink" title="第二十章 展望：可塑网络中的动力学"></a>第二十章 展望：可塑网络中的动力学</h2><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h1 id="第一版勘误"><a href="#第一版勘误" class="headerlink" title="第一版勘误"></a>第一版勘误</h1>
       
     </div>
 

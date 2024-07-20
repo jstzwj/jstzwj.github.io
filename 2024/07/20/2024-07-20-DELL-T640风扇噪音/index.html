@@ -19,23 +19,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"blog.han.moe","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"giscus","storage":true,"lazyload":false,"nav":null,"activeClass":"giscus"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="夏寒的咖啡馆">
-<meta property="og:url" content="https://blog.han.moe/tags/Neuronal-Dynamics/index.html">
+    <meta name="description" content="DELL T640的风扇噪音问题解决方法实验室中有一台DELL T640工作站，但在插着一张RTX3080的情况下，风扇噪音大的飞起，和机房里面的服务器一样。搜索一番说是因为硬件和机器不匹配，导致机器误以为硬件会过热，便把风扇开到最大。 这篇博客将介绍如何通过调整风扇转速来解决T640的噪音问题。 在开始之前，请确保iDrac版本为3.30.30.30，因为新版的iDrac不支持从ipmi手动控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-07-20-DELL-T640风扇噪音">
+<meta property="og:url" content="https://blog.han.moe/2024/07/20/2024-07-20-DELL-T640%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3/index.html">
 <meta property="og:site_name" content="夏寒的咖啡馆">
+<meta property="og:description" content="DELL T640的风扇噪音问题解决方法实验室中有一台DELL T640工作站，但在插着一张RTX3080的情况下，风扇噪音大的飞起，和机房里面的服务器一样。搜索一番说是因为硬件和机器不匹配，导致机器误以为硬件会过热，便把风扇开到最大。 这篇博客将介绍如何通过调整风扇转速来解决T640的噪音问题。 在开始之前，请确保iDrac版本为3.30.30.30，因为新版的iDrac不支持从ipmi手动控制">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-20T12:00:56.000Z">
+<meta property="article:modified_time" content="2024-07-20T14:56:04.031Z">
 <meta property="article:author" content="夏寒">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="工作站">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://blog.han.moe/tags/Neuronal-Dynamics/">
+<link rel="canonical" href="https://blog.han.moe/2024/07/20/2024-07-20-DELL-T640%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/Neuronal-Dynamics/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.han.moe/2024/07/20/2024-07-20-DELL-T640%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3/","path":"2024/07/20/2024-07-20-DELL-T640风扇噪音/","title":"2024-07-20-DELL-T640风扇噪音"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: Neuronal Dynamics | 夏寒的咖啡馆</title>
+<title>2024-07-20-DELL-T640风扇噪音 | 夏寒的咖啡馆</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -96,7 +102,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -109,6 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DELL-T640%E7%9A%84%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">DELL T640的风扇噪音问题解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E5%BC%80%E5%90%AF%E6%89%8B%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%A3%8E%E6%89%87%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.1.</span> <span class="nav-text">步骤 1：开启手动服务器风扇条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E8%AE%BE%E7%BD%AE%E9%A3%8E%E6%89%87%E8%BD%AC%E9%80%9F"><span class="nav-number">1.2.</span> <span class="nav-text">步骤 2：设置风扇转速</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,111 +163,118 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">Neuronal Dynamics
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/07/20/2024-07-20-DELL-T640%E9%A3%8E%E6%89%87%E5%99%AA%E9%9F%B3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2024-07-20-DELL-T640风扇噪音 | 夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024-07-20-DELL-T640风扇噪音
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+
+      <time title="创建时间：2024-07-20 20:00:56 / 修改时间：22:56:04" itemprop="dateCreated datePublished" datetime="2024-07-20T20:00:56+08:00">2024-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="DELL-T640的风扇噪音问题解决方法"><a href="#DELL-T640的风扇噪音问题解决方法" class="headerlink" title="DELL T640的风扇噪音问题解决方法"></a>DELL T640的风扇噪音问题解决方法</h1><p>实验室中有一台DELL T640工作站，但在插着一张RTX3080的情况下，风扇噪音大的飞起，和机房里面的服务器一样。<br>搜索一番说是因为硬件和机器不匹配，导致机器误以为硬件会过热，便把风扇开到最大。</p>
+<p>这篇博客将介绍如何通过调整风扇转速来解决T640的噪音问题。</p>
+<p>在开始之前，请确保iDrac版本为3.30.30.30，因为新版的iDrac不支持从ipmi手动控制风扇转速。因此该方法需要使用旧版本的iDrac。以下是解决噪音问题的步骤：</p>
+<h2 id="步骤-1：开启手动服务器风扇条件"><a href="#步骤-1：开启手动服务器风扇条件" class="headerlink" title="步骤 1：开启手动服务器风扇条件"></a>步骤 1：开启手动服务器风扇条件</h2><p>首先，需要通过以下命令开启手动服务器风扇控制：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ipmitool -I lanplus -H &lt;IP地址&gt; -U &lt;用户名&gt; -P &lt;密码&gt; raw 0x30 0x30 0x01 0x00</span><br></pre></td></tr></table></figure>
+
+<p>该命令将设置服务器的风扇控制模式为手动模式，这样您就可以手动调整风扇转速。</p>
+<h2 id="步骤-2：设置风扇转速"><a href="#步骤-2：设置风扇转速" class="headerlink" title="步骤 2：设置风扇转速"></a>步骤 2：设置风扇转速</h2><p>接下来，使用以下命令来设置风扇的转速：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ipmitool -I lanplus -H &lt;IP地址&gt; -U &lt;用户名&gt; -P &lt;密码&gt; raw 0x30 0x30 0x02 0xff 0x0a</span><br></pre></td></tr></table></figure>
+
+<p>在上述命令中，<code>0xff</code>代表风扇的索引号，<code>0x0a</code>代表所设置的转速值。<br>如果设置为最小<code>0x01</code>则机器则会视为风扇损坏，风扇会自动提速到30%左右。<br>而设置到<code>0x0a</code>则正好视作风扇为健康状态，10%的转速也不再产生噪音。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-02-21T14:30:33+08:00"
-              content="2024-02-21">
-          02-21
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/" itemprop="url">
-          <span itemprop="name">神经元动力学原理</span>
-        </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag"># 运维</a>
+              <a href="/tags/%E5%B7%A5%E4%BD%9C%E7%AB%99/" rel="tag"># 工作站</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6%E5%8E%9F%E7%90%86/" rel="prev" title="神经元动力学原理">
+                  <i class="fa fa-angle-left"></i> 神经元动力学原理
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-02-21T14:08:25+08:00"
-              content="2024-02-21">
-          02-21
-        </time>
-      </div>
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86/" itemprop="url">
-          <span itemprop="name">神经系统原理</span>
-        </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-02-21T14:07:03+08:00"
-              content="2024-02-21">
-          02-21
-        </time>
-      </div>
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2024/02/21/2024-02-21-%E7%A5%9E%E7%BB%8F%E5%85%83%E4%B8%8E%E6%95%B0%E5%AD%A6/" itemprop="url">
-          <span itemprop="name">神经元与数学</span>
-        </a>
-      </div>
 
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-02-18T20:02:19+08:00"
-              content="2024-02-18">
-          02-18
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2024/02/18/2024-02-18-%E7%A5%9E%E7%BB%8F%E5%85%83%E5%8A%A8%E5%8A%9B%E5%AD%A6-%E4%BB%8E%E5%8D%95%E4%B8%AA%E7%A5%9E%E7%BB%8F%E5%85%83%E5%88%B0%E7%BD%91%E7%BB%9C%E5%92%8C%E8%AE%A4%E7%9F%A5%E6%A8%A1%E5%9E%8B/" itemprop="url">
-          <span itemprop="name">神经元动力学-从单个神经元到网络和认知模型</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-    </div>
+    
+  
+  <div class="comments giscus-container">
   </div>
   
   
-  
-
 </div>
   </main>
 
