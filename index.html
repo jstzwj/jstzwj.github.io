@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">12</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">8</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">9</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a></li>
   </ul>
 </nav>
 
@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -166,6 +166,151 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2025/07/08/2025-07-08-%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1pyinstaller%E8%A7%A3%E5%8C%85%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="夏寒">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 夏寒的咖啡馆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/07/08/2025-07-08-%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1pyinstaller%E8%A7%A3%E5%8C%85%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">记录一次pyinstaller解包过程</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-07-08 21:37:12 / 修改时间：22:48:05" itemprop="dateCreated datePublished" datetime="2025-07-08T21:37:12+08:00">2025-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%80%86%E5%90%91/" itemprop="url" rel="index"><span itemprop="name">逆向</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>分析由PyInstaller打包的Python程序是一个常见需求。本文将详细记录我对一个名为xxxx.exe的PyInstaller打包程序进行解包和反编译的全过程。</p>
+<h2 id="第一步：识别打包工具"><a href="#第一步：识别打包工具" class="headerlink" title="第一步：识别打包工具"></a>第一步：识别打包工具</h2><p>通过观察程序图标和文件特征，确认这是一个由PyInstaller打包的Python脚本。PyInstaller是一个流行的Python打包工具，能将Python脚本转换为独立的可执行文件。</p>
+<h2 id="第二步：使用pyinstxtractor解包"><a href="#第二步：使用pyinstxtractor解包" class="headerlink" title="第二步：使用pyinstxtractor解包"></a>第二步：使用pyinstxtractor解包</h2><p>我使用了专门针对PyInstaller的解包工具<a target="_blank" rel="noopener" href="https://github.com/extremecoders-re/pyinstxtractor">pyinstxtractor</a>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python pyinstxtractor.py xxxx.exe</span><br></pre></td></tr></table></figure>
+
+<p>执行后输出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[+] Processing xxxx.exe</span><br><span class="line">[+] Pyinstaller version: 2.1+</span><br><span class="line">[+] Python version: 36</span><br><span class="line">[+] Length of package: 5612452 bytes</span><br><span class="line">[+] Found 59 files in CArchive</span><br><span class="line">[+] Beginning extraction...please standby</span><br><span class="line">[+] Possible entry point: pyiboot01_bootstrap.pyc</span><br><span class="line">[+] Possible entry point: xxxx.pyc</span><br><span class="line">[+] Found 133 files in PYZ archive</span><br><span class="line">[+] Successfully extracted pyinstaller archive: xxxx.exe</span><br></pre></td></tr></table></figure>
+
+<p>解包完成后，生成了一个<code>xxxx.exe_extracted</code>目录，其中包含所有解包出的pyc文件和dll文件。</p>
+<h2 id="第三步：确定Python版本"><a href="#第三步：确定Python版本" class="headerlink" title="第三步：确定Python版本"></a>第三步：确定Python版本</h2><p>要正确反编译pyc文件，必须知道原始Python的确切版本。通过以下方法确认：</p>
+<p>(1) 可以直接在目录中看到python311.dll文件，可知是python3.11版本。</p>
+<p>(2) 具体是python哪个版本，</p>
+<p>我们随便打开一个PYZ-00.pyz_extracted目录下的pyc文件(例如base64.pyc)，查看其头部信息，前四个字节为A70D0D0A。</p>
+<p>我们可以在python的官方仓库中找到不同版本pyc的magic值： <a target="_blank" rel="noopener" href="https://github.com/python/cpython/blob/main/Include/internal/pycore_magic_number.h">https://github.com/python/cpython/blob/main/Include/internal/pycore_magic_number.h</a><br>检索到python3.11这部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">Python 3.11a1 3450 Use exception table for unwinding (&quot;zero cost&quot; exception handling)</span><br><span class="line">Python 3.11a1 3451 (Add CALL_METHOD_KW)</span><br><span class="line">Python 3.11a1 3452 (drop nlocals from marshaled code objects)</span><br><span class="line">Python 3.11a1 3453 (add co_fastlocalnames and co_fastlocalkinds)</span><br><span class="line">Python 3.11a1 3454 (compute cell offsets relative to locals bpo-43693)</span><br><span class="line">Python 3.11a1 3455 (add MAKE_CELL bpo-43693)</span><br><span class="line">Python 3.11a1 3456 (interleave cell args bpo-43693)</span><br><span class="line">Python 3.11a1 3457 (Change localsplus to a bytes object bpo-43693)</span><br><span class="line">Python 3.11a1 3458 (imported objects now don&#x27;t use LOAD_METHOD/CALL_METHOD)</span><br><span class="line">Python 3.11a1 3459 (PEP 657: add end line numbers and column offsets for instructions)</span><br><span class="line">Python 3.11a1 3460 (Add co_qualname field to PyCodeObject bpo-44530)</span><br><span class="line">Python 3.11a1 3461 (JUMP_ABSOLUTE must jump backwards)</span><br><span class="line">Python 3.11a2 3462 (bpo-44511: remove COPY_DICT_WITHOUT_KEYS, change</span><br><span class="line">                    MATCH_CLASS and MATCH_KEYS, and add COPY)</span><br><span class="line">Python 3.11a3 3463 (bpo-45711: JUMP_IF_NOT_EXC_MATCH no longer pops the</span><br><span class="line">                    active exception)</span><br><span class="line">Python 3.11a3 3464 (bpo-45636: Merge numeric BINARY_*INPLACE_* into</span><br><span class="line">                    BINARY_OP)</span><br><span class="line">Python 3.11a3 3465 (Add COPY_FREE_VARS opcode)</span><br><span class="line">Python 3.11a4 3466 (bpo-45292: PEP-654 except*)</span><br><span class="line">Python 3.11a4 3467 (Change CALL_xxx opcodes)</span><br><span class="line">Python 3.11a4 3468 (Add SEND opcode)</span><br><span class="line">Python 3.11a4 3469 (bpo-45711: remove type, traceback from exc_info)</span><br><span class="line">Python 3.11a4 3470 (bpo-46221: PREP_RERAISE_STAR no longer pushes lasti)</span><br><span class="line">Python 3.11a4 3471 (bpo-46202: remove pop POP_EXCEPT_AND_RERAISE)</span><br><span class="line">Python 3.11a4 3472 (bpo-46009: replace GEN_START with POP_TOP)</span><br><span class="line">Python 3.11a4 3473 (Add POP_JUMP_IF_NOT_NONE/POP_JUMP_IF_NONE opcodes)</span><br><span class="line">Python 3.11a4 3474 (Add RESUME opcode)</span><br><span class="line">Python 3.11a5 3475 (Add RETURN_GENERATOR opcode)</span><br><span class="line">Python 3.11a5 3476 (Add ASYNC_GEN_WRAP opcode)</span><br><span class="line">Python 3.11a5 3477 (Replace DUP_TOP/DUP_TOP_TWO with COPY and</span><br><span class="line">                    ROT_TWO/ROT_THREE/ROT_FOUR/ROT_N with SWAP)</span><br><span class="line">Python 3.11a5 3478 (New CALL opcodes)</span><br><span class="line">Python 3.11a5 3479 (Add PUSH_NULL opcode)</span><br><span class="line">Python 3.11a5 3480 (New CALL opcodes, second iteration)</span><br><span class="line">Python 3.11a5 3481 (Use inline cache for BINARY_OP)</span><br><span class="line">Python 3.11a5 3482 (Use inline caching for UNPACK_SEQUENCE and LOAD_GLOBAL)</span><br><span class="line">Python 3.11a5 3483 (Use inline caching for COMPARE_OP and BINARY_SUBSCR)</span><br><span class="line">Python 3.11a5 3484 (Use inline caching for LOAD_ATTR, LOAD_METHOD, and</span><br><span class="line">                    STORE_ATTR)</span><br><span class="line">Python 3.11a5 3485 (Add an oparg to GET_AWAITABLE)</span><br><span class="line">Python 3.11a6 3486 (Use inline caching for PRECALL and CALL)</span><br><span class="line">Python 3.11a6 3487 (Remove the adaptive &quot;oparg counter&quot; mechanism)</span><br><span class="line">Python 3.11a6 3488 (LOAD_GLOBAL can push additional NULL)</span><br><span class="line">Python 3.11a6 3489 (Add JUMP_BACKWARD, remove JUMP_ABSOLUTE)</span><br><span class="line">Python 3.11a6 3490 (remove JUMP_IF_NOT_EXC_MATCH, add CHECK_EXC_MATCH)</span><br><span class="line">Python 3.11a6 3491 (remove JUMP_IF_NOT_EG_MATCH, add CHECK_EG_MATCH,</span><br><span class="line">                    add JUMP_BACKWARD_NO_INTERRUPT, make JUMP_NO_INTERRUPT virtual)</span><br><span class="line">Python 3.11a7 3492 (make POP_JUMP_IF_NONE/NOT_NONE/TRUE/FALSE relative)</span><br><span class="line">Python 3.11a7 3493 (Make JUMP_IF_TRUE_OR_POP/JUMP_IF_FALSE_OR_POP relative)</span><br><span class="line">Python 3.11a7 3494 (New location info table)</span><br><span class="line">Python 3.11b4 3495 (Set line number of module&#x27;s RESUME instr to 0 per PEP 626)</span><br></pre></td></tr></table></figure>
+
+<p>Magic Number是4字节的二进制数据，我们找到对应的十进制数据后，通过以下代码得到相应的二进制数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MAGIC_NUMBER = (<span class="number">3495</span>).to_bytes(<span class="number">2</span>, <span class="string">&#x27;little&#x27;</span>) + <span class="string">b&#x27;\r\n&#x27;</span></span><br><span class="line">_RAW_MAGIC_NUMBER = <span class="built_in">int</span>.from_bytes(MAGIC_NUMBER, <span class="string">&#x27;big&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(_RAW_MAGIC_NUMBER))</span><br></pre></td></tr></table></figure>
+<p>可以得到0xA70D0D0A。从而确定具体的版本为3495也就是3.11b4。</p>
+<h2 id="第四步：修复pyc文件头"><a href="#第四步：修复pyc文件头" class="headerlink" title="第四步：修复pyc文件头"></a>第四步：修复pyc文件头</h2><p>PyInstaller生成的pyc文件缺少标准pyc文件应有的头部信息，需要手动修复。步骤如下：</p>
+<p>我们要逆向的是xxx.pyc文件，但是这一步，我们还不能直接反编译pyc文件，因为pyinstaller删除了pyc文件的头部信息中包含的magic number和时间戳等信息，我们需要先将其转换为可以被反编译器识别的格式。<br>观察xxxx.pyc头部</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">E3 00 00 00 00 00 00 00 | 00 00 00 00 00 05 00 00</span><br><span class="line">00 00 00 00 00 F3 18 02 | 00 00 97 00 64 00 64 01</span><br><span class="line">6C 00 5A 00 64 00 64 01 | 6C 01 5A 01 64 00 64 01</span><br><span class="line">6C 02 5A 02 64 00 64 01 | 6C 03 5A 03 64 00 64 01</span><br></pre></td></tr></table></figure>
+
+<p>base64.pyc头部</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A7 0D 0D 0A 00 00 00 00 | 00 00 00 00 E3 00 00 00</span><br><span class="line">00 00 00 00 00 00 00 00 | 05 00 00 00 00 00 00 00</span><br><span class="line">00 F3 A2 02 00 00 97 00 | 64 00 5A 00 64 01 64 02</span><br><span class="line">6C 01 5A 01 64 01 64 02 | 6C 02 5A 02 64 01 64 02</span><br></pre></td></tr></table></figure>
+
+<p>虽然我完全看不出有什么关联。</p>
+<p>接下来我们新建一个conda环境，版本号和上面的pyc文件版本一致，写一个hello world的py文件，编译为pyc文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m py_compile hello_world.py</span><br></pre></td></tr></table></figure>
+
+<p>再次观察头部信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A7 0D 0D 0A 00 00 00 00 | 42 3A 64 68 27 01 00 00</span><br><span class="line">E3 00 00 00 00 00 00 00 | 00 00 00 00 00 04 00 00</span><br><span class="line">00 00 00 00 00 F3 A6 00 | 00 00 97 00 64 00 A0 00</span><br><span class="line">00 00 00 00 00 00 00 00 | 00 00 00 00 00 00 00 00</span><br></pre></td></tr></table></figure>
+
+<p>这时可以观察到规律了，”E3 00 00 00 00 00 00 00”这第二行以及”00 00 97 00 64 00 A0 00”第三行</p>
+<p>我们将”A7 0D 0D 0A 00 00 00 00 | 42 3A 64 68 27 01 00 00”插入到xxxx.pyc的头部信息中。</p>
+<h2 id="第五步：尝试反编译"><a href="#第五步：尝试反编译" class="headerlink" title="第五步：尝试反编译"></a>第五步：尝试反编译</h2><h3 id="尝试使用uncompyle6"><a href="#尝试使用uncompyle6" class="headerlink" title="尝试使用uncompyle6"></a>尝试使用uncompyle6</h3><p>首先尝试使用uncompyle6进行反编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uncompyle6 xxxx_patched.pyc</span><br></pre></td></tr></table></figure>
+
+<p>但发现uncompyle6最高仅支持到Python 3.8版本，而我们的文件是3.11版本，无法兼容。</p>
+<h3 id="尝试使用pycdc"><a href="#尝试使用pycdc" class="headerlink" title="尝试使用pycdc"></a>尝试使用pycdc</h3><p>于是转向另一个反编译工具pycdc：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zrax/pycdc.git</span><br><span class="line"><span class="built_in">cd</span> pycdc</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line">cmake -S . -B build</span><br><span class="line">cmake --build build</span><br><span class="line">./pycdc.exe xxxx_patched.pyc</span><br></pre></td></tr></table></figure>
+
+<p>但遇到了错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error decompyling xxxx_patched.pyc: vector too long</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用pycdas获取字节码"><a href="#使用pycdas获取字节码" class="headerlink" title="使用pycdas获取字节码"></a>使用pycdas获取字节码</h3><p>当直接反编译失败时，可以使用pycdc附带的pycdas工具获取字节码表示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./pycdas xxxx_patched.pyc</span><br></pre></td></tr></table></figure>
+
+<p>然后将输出的字节码提交给AI大模型(如DeepSeek)进行人工逆向分析，最终成功还原出原始Python代码。</p>
+<h2 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h2><ol>
+<li><strong>版本匹配至关重要</strong>：PyInstaller解包和pyc反编译都需要精确匹配Python版本</li>
+<li><strong>工具链组合使用</strong>：没有单一工具能解决所有问题，需要灵活组合多种工具</li>
+<li><strong>人工分析必不可少</strong>：当自动化工具失败时，人工分析字节码是最后的手段</li>
+</ol>
+<h2 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h2><ol>
+<li>解包工具：<a target="_blank" rel="noopener" href="https://github.com/extremecoders-re/pyinstxtractor">pyinstxtractor</a></li>
+<li>反编译工具：<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zrax/pycdc">pycdc&#x2F;pycdas</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/rocky/python-uncompyle6">uncompyle6</a></li>
+</ul>
+</li>
+<li>辅助工具：<ul>
+<li>WinHex (用于二进制分析)</li>
+<li>AI大模型 (用于字节码解释)</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2025/06/27/2025-05-02-%E5%90%90%E5%8F%B8%E9%9D%A2%E5%8C%85%E5%88%B6%E4%BD%9C%E6%8E%A2%E7%B4%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -184,7 +329,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/06/27/2025-05-02-%E5%90%90%E5%8F%B8%E9%9D%A2%E5%8C%85%E5%88%B6%E4%BD%9C%E6%8E%A2%E7%B4%A2/" class="post-title-link" itemprop="url">2025-05-02-吐司面包制作探索</a>
+          <a href="/2025/06/27/2025-05-02-%E5%90%90%E5%8F%B8%E9%9D%A2%E5%8C%85%E5%88%B6%E4%BD%9C%E6%8E%A2%E7%B4%A2/" class="post-title-link" itemprop="url">吐司面包制作探索</a>
         </h2>
 
         <div class="post-meta-container">
@@ -196,7 +341,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2025-06-27 22:01:53 / 修改时间：22:02:14" itemprop="dateCreated datePublished" datetime="2025-06-27T22:01:53+08:00">2025-06-27</time>
+      <time title="创建时间：2025-06-27 22:01:53 / 修改时间：22:19:56" itemprop="dateCreated datePublished" datetime="2025-06-27T22:01:53+08:00">2025-06-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -218,7 +363,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="烘焙笔记：吐司面包探索之路"><a href="#烘焙笔记：吐司面包探索之路" class="headerlink" title="烘焙笔记：吐司面包探索之路"></a>烘焙笔记：吐司面包探索之路</h1>
+          <h1 id="烘焙笔记：吐司面包探索之路"><a href="#烘焙笔记：吐司面包探索之路" class="headerlink" title="烘焙笔记：吐司面包探索之路"></a>烘焙笔记：吐司面包探索之路</h1><p>实验中，待续</p>
+
       
     </div>
 
@@ -1079,108 +1225,6 @@
 
 <p>7、记下<code>identity.secret</code>和<code>identity.public</code>的值，接着转到应用程序，选择Zerotier，然后点击编辑。<br>将<code>identity.secret</code>和<code>identity.public</code>分别填入对应的框中，更新配置即可。</p>
 <p>然后zerotier会生成一个新的ip地址，并且重新启动Zerotier应用程序或TrueNAS，该地址也不会变化。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://blog.han.moe/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="夏寒">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="夏寒的咖啡馆">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 夏寒的咖啡馆">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/19/2023-12-27-%E8%AE%B0%E4%B8%80%E6%AC%A1NaN%20loss%E7%9A%84%E8%B0%83%E8%AF%95/" class="post-title-link" itemprop="url">简单记一次NaN loss的调试</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-19 20:04:07" itemprop="dateCreated datePublished" datetime="2024-01-19T20:04:07+08:00">2024-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-04-18 16:44:57" itemprop="dateModified" datetime="2025-04-18T16:44:57+08:00">2025-04-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>LLM，神奇，太神奇了。</p>
-<p>事情是这样的。</p>
-<p>做LLM微调，同样一份代码，我重构了一下，loss就变NaN了。。。</p>
-<h2 id="第一次Loss-NaN"><a href="#第一次Loss-NaN" class="headerlink" title="第一次Loss NaN"></a>第一次Loss NaN</h2><p>选择的模型是Openbuddy-llama2-13b，使用shared-gpt数据进行微调。</p>
-<p>现象是这样的，模型在第一个step的时候train loss是正常的，在第二个step开始就变为NaN了。</p>
-<p>先进行了一些检查，排除了常见的一些原因：</p>
-<ul>
-<li><p>输入包含NaN</p>
-</li>
-<li><p>权重包含NaN</p>
-</li>
-<li><p>学习率过大</p>
-</li>
-</ul>
-<p>反复思考了一下，模型本身前向的过程应该是没问题的，从loss到回传梯度，到优化器优化中必有一处出现了NaN。默认的eps是1e-8。</p>
-<p>最后，确定了Adam优化器中eps参数过小（1e-9）导致了NaN loss。</p>
-<h2 id="第二次Loss-NaN"><a href="#第二次Loss-NaN" class="headerlink" title="第二次Loss NaN"></a>第二次Loss NaN</h2><p>这一次直接第一个step就发生了loss为NaN的情况。这次定位原因更简单一些。</p>
-<p>这一次是因为tokenizer padding side是在左侧，且pad token为eos，导致第一个token就是eos，后面的全部token都被mask掉了。</p>
 
       
     </div>
